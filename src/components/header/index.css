@@ -1,0 +1,125 @@
+.top-container {
+  text-align: center;
+  background: url(../../img/34815.jpg) no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 20%;
+}
+
+header.Header {
+  border-bottom: silver solid 15px;
+}
+
+/*
+  Neon Title by Thomas Trinca
+*/
+
+@font-face {
+  font-family: neon;
+  src: url(../../fonts/neon.ttf);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  h4.command {
+      font-size: 15px;
+  }
+}
+
+.nav-container .row {
+    margin: auto;
+    width: 100%;
+}
+
+.neon h1 {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux h1 {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon h1 {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+.flux h1 {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+
+@-webkit-keyframes blink {
+/*  from {opacity: 1;}
+  to {opacity: 0;}*/
+  0% {opacity: 1;}
+  25% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@-moz-keyframes blink {
+/*  from {opacity: 1;}
+  to {opacity: 0;}*/
+  0% {opacity: 1;}
+  25% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@-o-keyframes blink {
+/*  from {opacity: 1;}
+  to {opacity: 0;}*/
+  0% {opacity: 1;}
+  25% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@keyframes blink {
+/*  from {opacity: 1;}
+  to {opacity: 0;}*/
+  0% {opacity: 1;}
+  25% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 0;}
+}
