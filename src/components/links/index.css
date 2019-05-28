@@ -1,0 +1,21 @@
+div.link {
+  text-align: center;
+}
+
+div.link-container {
+    border-style: dashed;
+}
+
+div.container.link-container h3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.fab, .fas {
+  color: lightgreen;
+  font-size: 100px;
+}
+
+.fa-trademark {
+  font-size: 15px;
+}

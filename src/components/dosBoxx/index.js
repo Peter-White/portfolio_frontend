@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './index.css';
 import Title from '../title';
 import Command from '../command';
+import History from '../history';
+import Goals from '../goals';
+import Links from '../links';
 
 class DosBoxx extends Component {
 
@@ -30,6 +33,9 @@ class DosBoxx extends Component {
         <div id="dosBoxx">
           <Title />
           <Command current_dir={this.state.current_dir} />
+          <History />
+          <Goals />
+          <Links />
         </div>
       </main>
     );
