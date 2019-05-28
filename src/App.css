@@ -1,75 +1,81 @@
 /* Delicious Fonts */
 @font-face {
   font-family: whizkid;
-  src: url(/fonts/whizkid.ttf);
+  src: url(./fonts/whizkid.ttf);
 }
 
 @font-face {
   font-family: pcsenior;
-  src: url(/fonts/pcsenior.ttf);
+  src: url(./fonts/pcsenior.ttf);
 }
 
 @font-face {
   font-family: computer_7;
-  src: url(/fonts/computer_7.ttf);
+  src: url(./fonts/computer_7.ttf);
 }
 
 @font-face {
   font-family: good_times_rg;
-  src: url(/fonts/good_times_rg.ttf);
+  src: url(./fonts/good times rg.ttf);
 }
 
 @font-face {
   font-family: BACKTO1982;
-  src: url(/fonts/BACKTO1982.TTF);
+  src: url(./fonts/BACKTO1982.TTF);
 }
 
 @font-face {
   font-family: computer_pixel-7;
-  src: url(/fonts/computer_pixel-7.ttf);
+  src: url(./fonts/computer_pixel-7.ttf);
 }
 
 @font-face {
   font-family: ka1;
-  src: url(/fonts/ka1.ttf);
+  src: url(./fonts/ka1.ttf);
 }
 
 @font-face {
   font-family: PAC-FONT;
-  src: url(/fonts/PAC-FONT.TTF);
+  src: url(./fonts/PAC-FONT.TTF);
 }
 
 @font-face {
   font-family: Hardpixel;
-  src: url(/fonts/Hardpixel.OTF);
+  src: url(./fonts/Hardpixel.OTF);
 }
 
 @font-face {
   font-family: PressStart2P-Regular;
-  src: url(/fonts/PressStart2P-Regular.ttf);
+  src: url(./fonts/PressStart2P-Regular.ttf);
 }
 
 @font-face {
   font-family: ponde___;
-  src: url(/fonts/ponde___.ttf);
+  src: url(./fonts/ponde___.ttf);
 }
 
 @font-face {
   font-family: scream_when_youre_ready_to_die;
-  src: url(/fonts/scream_when_youre_ready_to_die.ttf);
+  src: url(./fonts/scream_when_youre_ready_to_die.ttf);
 }
 
 @font-face {
   font-family: stormfaze;
-  src: url(/fonts/stormfaze.ttf);
+  src: url(./fonts/stormfaze.ttf);
 }
 
 @font-face {
   font-family: VIDEOPHREAK;
-  src: url(/fonts/VIDEOPHREAK.ttf);
+  src: url(./fonts/VIDEOPHREAK.ttf);
 }
 
 @font-face {
   font-family: ARCADECLASSIC;
-  src: url(/fonts/ARCADECLASSIC.TTF);
+  src: url(./fonts/ARCADECLASSIC.TTF);
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
