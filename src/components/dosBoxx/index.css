@@ -4,3 +4,7 @@ div#dosBoxx {
   color: lightgreen;
   width: 100%;
 }
+
+div.cell {
+  padding: 1%;
+}

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import './index.css';
 import Title from '../title';
+import Command from '../command';
 
 class DosBoxx extends Component {
 
+  constructor() {
+      super();
+      this.state = {
+        "current_dir": "C:/>"
+      }
+    }
   // let commands = {
   //   "cd": "Change directory",
   //   "run": "Run application",
@@ -22,6 +29,7 @@ class DosBoxx extends Component {
       <main>
         <div id="dosBoxx">
           <Title />
+          <Command current_dir={this.state.current_dir} />
         </div>
       </main>
     );

@@ -1,0 +1,11 @@
+input#command-input {
+  color: lightgreen;
+  background: rgb(0, 10, 0);
+  border-color: rgb(0, 10, 0);
+}
+
+span#path {
+  color: lightgreen;
+  background: rgb(0, 10, 0);
+  border-color: rgb(0, 10, 0);
+}
