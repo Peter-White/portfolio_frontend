@@ -5,6 +5,7 @@ import Command from '../command';
 import History from '../history';
 import Goals from '../goals';
 import Links from '../links';
+import Quit from '../quit';
 
 class DosBoxx extends Component {
 
@@ -36,6 +37,7 @@ class DosBoxx extends Component {
           <History />
           <Goals />
           <Links />
+          <Quit />
         </div>
       </main>
     );
