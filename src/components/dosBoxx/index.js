@@ -8,6 +8,7 @@ import Links from '../links';
 import Quit from '../quit';
 import Error from '../error';
 import Help from '../help';
+import PastInput from '../pastInput';
 
 class DosBoxx extends Component {
 
@@ -15,6 +16,7 @@ class DosBoxx extends Component {
       super();
       this.state = {
         "current_dir": "C:/>",
+        "past_input": "",
         "commands": {
           "CD": "Change directory",
           "RUN": "Run application",
@@ -26,7 +28,10 @@ class DosBoxx extends Component {
           "REGISTER": "Create a Personal Computer account to log in and log out of",
           "CLEANSE": "Purge all items on screen from existence",
           "GETMETHEHELLOUTTAHERE": "Quit"
-        }
+        },
+        "command_queue": [
+          <Title />
+        ]
       }
     }
 
@@ -34,9 +39,8 @@ class DosBoxx extends Component {
     return(
       <main>
         <div id="dosBoxx">
-          <Title />
+          <PastInput pastInput={this.state.current_dir + " " + this.state.past_input} />
           <Command current_dir={this.state.current_dir} />
-          <Help commands={this.state.commands} />
         </div>
       </main>
     );
