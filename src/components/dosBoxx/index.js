@@ -18,8 +18,8 @@ class DosBoxx extends Component {
         "current_dir": "C:/>",
         "past_input": "",
         "commands": {
-          "CD": "Change directory",
-          "RUN": "Run application",
+          "CD <DIR>": "Change directory",
+          "RUN <PROGRAM>": "Run application",
           "HELP": "Self Explanatory",
           "STUFF": "See all files in directory",
           "NAV": "Open program navigation menu",
@@ -35,12 +35,31 @@ class DosBoxx extends Component {
       }
     }
 
+  inputReturn = e => {
+    var keycode = (e.keyCode ? e.keyCode : e.which);
+    if (keycode == '13') {
+        const past = <PastInput pastInput={this.state.current_dir + " " + e.target.value} />;
+        this.setState(() => {
+          const list = this.state.command_queue.push(past);
+
+          return {
+            list
+          };
+        });
+    }
+  }
+
   render() {
     return(
       <main>
         <div id="dosBoxx">
-          <PastInput pastInput={this.state.current_dir + " " + this.state.past_input} />
-          <Command current_dir={this.state.current_dir} />
+          {
+            this.state.command_queue[0] &&
+            this.state.command_queue.map(command =>
+              command
+            )
+          }
+          <Command current_dir={this.state.current_dir} inputReturn={this.inputReturn} />
         </div>
       </main>
     );
