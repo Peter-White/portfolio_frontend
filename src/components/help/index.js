@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './index.css';
 
 class Help extends Component {
+  constructor() {
+    super();
+
+  }
   render() {
     return(
       <div className="row cell">

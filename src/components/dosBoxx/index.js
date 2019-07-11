@@ -9,17 +9,18 @@ import Quit from '../quit';
 import Error from '../error';
 import Help from '../help';
 import PastInput from '../pastInput';
+import Login from '../login';
 
 class DosBoxx extends Component {
 
   constructor() {
       super();
       this.state = {
-        "current_dir": "C:/>",
+        "current_dir": "C/Portfolio:",
         "past_input": "",
         "commands": {
-          "CD <DIR>": "Change directory",
-          "RUN <PROGRAM>": "Run application",
+          "RUN": "Run application e.g. run dmc.exe",
+          "READ": "Read a word document (read-only) e.g. read stealthisbook.doc",
           "HELP": "Self Explanatory",
           "STUFF": "See all files in directory",
           "NAV": "Open program navigation menu",
@@ -29,23 +30,44 @@ class DosBoxx extends Component {
           "CLEANSE": "Purge all items on screen from existence",
           "GETMETHEHELLOUTTAHERE": "Quit"
         },
+        "docs": {
+          "HISTORY": <History />,
+          "HISTORY.EXE": <History />,
+          "GOALS": <Goals />,
+          "GOALS.LST": <Goals />
+        },
         "command_queue": [
           <Title />
         ]
       }
+  }
+
+  readDocs = (file) => {
+    return this.state.docs[file];
+  }
+
+  readInput = (command) => {
+    const commands = this.state.commands;
+    let commandSplit = command.toUpperCase().split(" ");
+    if (commands[commandSplit[0]]) {
+
+    } else {
+      return false;
     }
+  }
 
   inputReturn = e => {
     var keycode = (e.keyCode ? e.keyCode : e.which);
     if (keycode == '13') {
-        const past = <PastInput pastInput={this.state.current_dir + " " + e.target.value} />;
-        this.setState(() => {
-          const list = this.state.command_queue.push(past);
+      const past = <PastInput pastInput={this.state.current_dir + " " + e.target.value} />;
 
-          return {
-            list
-          };
-        });
+      this.setState(() => {
+        let list = this.state.command_queue.push(past);
+        return {
+          list
+        };
+      });
+      document.getElementById("command-input").focus();
     }
   }
 
@@ -59,7 +81,8 @@ class DosBoxx extends Component {
               command
             )
           }
-          <Command current_dir={this.state.current_dir} inputReturn={this.inputReturn} />
+          <Command focusInput={this.focusInput} current_dir={this.state.current_dir + "/>"} inputReturn={this.inputReturn} />
+          <Login />
         </div>
       </main>
     );
