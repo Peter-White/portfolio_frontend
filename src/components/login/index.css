@@ -16,9 +16,22 @@ form.loginForm input {
     border-color: lightgreen;
 }
 
+.container {
+    margin: 0 auto;
+    padding: 1%;
+    border-style: dashed;
+}
 
 form.loginForm input:focus {
     background-color: rgb(0, 10, 0);
     color: lightgreen;
     border-color: lightgreen;
+}
+
+form.loginForm {
+    padding-top: 50px;
+}
+
+small {
+  font-size: 5px;
 }

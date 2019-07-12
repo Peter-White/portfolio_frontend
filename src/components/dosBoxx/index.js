@@ -82,7 +82,7 @@ class DosBoxx extends Component {
             )
           }
           <Command focusInput={this.focusInput} current_dir={this.state.current_dir + "/>"} inputReturn={this.inputReturn} />
-          <Login />
+          <Login handleLogin={this.props.handleLogin}/>
         </div>
       </main>
     );
