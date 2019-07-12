@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './index.css';
 
-class Error extends Component {
+class PastInput extends Component {
   render() {
-    return (
+    return(
       <div className="row cell">
         <div className="col-md-12">
-          <h4>'{this.props.command}' not recognized</h4>
+          <p className="command">{this.props.pastInput}</p>
         </div>
       </div>
     );
   }
 }
 
-export default Error;
+export default PastInput;
