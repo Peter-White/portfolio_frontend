@@ -72,7 +72,7 @@ class App extends Component {
     return(
       <div className="App">
         <Header />
-        <DosBoxx handleLogin={this.handleLogin}/>
+        <DosBoxx logged_in={this.state.logged_in} handleLogin={this.handleLogin}/>
       </div>
     );
   }
