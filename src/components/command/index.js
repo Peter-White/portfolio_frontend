@@ -8,7 +8,7 @@ class Command extends Component {
         <div className="col-md-12">
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <span className="input-group-text" id="path">{this.props.current_dir}</span>
+              <span className="input-group-text" id="path">{this.props.data.username}></span>
               </div>
               <input type="text" onKeyPress={this.props.inputReturn} className="form-control" id="command-input" autocomplete="off" aria-describedby="basic-addon3"/>
             </div>

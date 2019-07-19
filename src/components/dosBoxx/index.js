@@ -2,58 +2,52 @@ import React, { Component } from 'react';
 import './index.css';
 import Title from '../title';
 import Command from '../command';
-import History from '../history';
-import Goals from '../goals';
-import Links from '../links';
+import History from '../logged_in/history';
+import Goals from '../logged_in/goals';
+import Links from '../logged_in/links';
 import Quit from '../quit';
-import Error from '../error';
-import Help from '../help';
-import PastInput from '../pastInput';
-import Login from '../login';
+import Error from '../logged_in/error';
+import Help from '../logged_in/help';
+import PastInput from '../logged_in/pastInput';
+import Login from '../logged_out/login';
+import Register from '../logged_out/register';
 
 class DosBoxx extends Component {
 
   constructor() {
       super();
       this.state = {
-        "current_dir": "C/Portfolio:",
         "past_input": "",
-        "commands": {
-          "RUN": "Run application e.g. run dmc.exe",
-          "READ": "Read a word document (read-only) e.g. read stealthisbook.doc",
-          "HELP": "Self Explanatory",
-          "STUFF": "See all files in directory",
-          "NAV": "Open program navigation menu",
-          "LOGIN": "Log in to your Personal Computer account",
-          "LOGOUT": "Log out of your Personal Computer account",
-          "REGISTER": "Create a Personal Computer account to log in and log out of",
-          "CLEANSE": "Purge all items on screen from existence",
-          "GETMETHEHELLOUTTAHERE": "Quit"
-        },
-        "docs": {
-          "HISTORY": <History />,
-          "HISTORY.EXE": <History />,
-          "GOALS": <Goals />,
-          "GOALS.LST": <Goals />
-        },
         "command_queue": [
           <Title />
-        ]
+        ],
+        data: {
+          "username": "Unauthorized"
+        }
       }
   }
 
-  readDocs = (file) => {
-    return this.state.docs[file];
+  componentDidMount() {
+    if (localStorage.getItem("token")) {
+      this.getData();
+    }
   }
 
-  readInput = (command) => {
-    const commands = this.state.commands;
-    let commandSplit = command.toUpperCase().split(" ");
-    if (commands[commandSplit[0]]) {
+  getData = async() => {
+    let token = localStorage.getItem('token');
 
-    } else {
-      return false;
-    }
+    const URL = "http://localhost:5000/api/user";
+
+    let response = await fetch(URL, {
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    });
+
+    let data = await response.json();
+
+    this.setState({ data });
   }
 
   inputReturn = e => {
@@ -76,18 +70,17 @@ class DosBoxx extends Component {
       <main>
         <div id="dosBoxx">
           {
+            this.props.logged_in ?
             this.state.command_queue[0] &&
             this.state.command_queue.map(command =>
               command
-            )
+            ) :
+            <Login handleLogin={this.props.handleLogin}/>
           }
-          <Command focusInput={this.focusInput} current_dir={this.state.current_dir + "/>"} inputReturn={this.inputReturn} />
-          <Login handleLogin={this.props.handleLogin}/>
-          {
-            this.props.logged_in ?
-            <h4>Logged In</h4> :
-            <h4>Not Logged In</h4>
-          }
+          <Register handleRegister={this.props.handleRegister} />
+          <Command data={this.state.data} logged_in={this.props.logged_in} focusInput={this.focusInput} inputReturn={this.inputReturn} />
+
+
         </div>
       </main>
     );

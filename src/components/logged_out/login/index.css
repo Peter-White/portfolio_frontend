@@ -31,7 +31,3 @@ form.loginForm input:focus {
 form.loginForm {
     padding-top: 50px;
 }
-
-small {
-  font-size: 5px;
-}

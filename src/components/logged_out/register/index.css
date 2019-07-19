@@ -1,0 +1,21 @@
+button.btn.btn-primary.register-btn {
+    background-color: rgb(0, 10, 0);
+    color: lightgreen;
+    border-color: lightgreen;
+}
+
+button.btn.btn-primary.register-btn:active {
+    color: rgb(0, 10, 0);
+    background-color: lightgreen;
+    border-color: lightgreen;
+}
+
+form.registryForm input {
+    color: lightgreen;
+    background: rgb(0, 10, 0);
+    border-color: lightgreen;
+}
+
+form.registryForm {
+    padding-top: 50px;
+}

@@ -68,11 +68,51 @@ class App extends Component {
     alert("You are now logged out");
   }
 
+  handleRegister = async(e) => {
+    e.preventDefault();
+
+    let first_name = e.target.elements.first_name.value;
+    let last_name = e.target.elements.last_name.value;
+    let company = e.target.elements.company.value;
+    let username = e.target.elements.username.value;
+    let email = e.target.elements.email.value;
+    let password = e.target.elements.password.value;
+
+    const URL = "http://127.0.0.1:5000/api/register";
+
+    // encrypt a token with the proper payload info to send to our api
+    let token = jwt.sign(
+      { 'first_name': first_name, 'last_name': last_name, 'company': company, 'email': email, 'password': password, 'username': username },
+      SECRET_KEY,
+      { expiresIn: '1h' } // expires in 1 hour
+    );
+
+    // send the token to register the user
+    let response = await fetch(URL, {
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    });
+
+    let data = await response.json();
+
+    console.log(Object.keys(data)[0]);
+    console.log(Object.keys(data)[0] === "error");
+
+    // setup message saying register or error
+    if (data.message === 'success') {
+      alert('Your are now registered!');
+    } else {
+      alert(data.message);
+    }
+  }
+
   render() {
     return(
       <div className="App">
-        <Header />
-        <DosBoxx logged_in={this.state.logged_in} handleLogin={this.handleLogin}/>
+        <Header handleLogOut={this.handleLogOut}/>
+        <DosBoxx logged_in={this.state.logged_in} handleLogOut={this.handleLogOut} handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
       </div>
     );
   }
