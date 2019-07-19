@@ -10,14 +10,35 @@ class App extends Component {
     super();
 
     this.state = {
-      logged_in: false
+      logged_in: false,
+      data: {
+        "username": "Unauthorized"
+      }
     }
   }
 
   componentWillMount() {
     if (localStorage.getItem("token")) {
       this.setState({ logged_in: true });
+      this.getData();
     }
+  }
+
+  getData = async() => {
+    let token = localStorage.getItem('token');
+
+    const URL = "http://localhost:5000/api/user";
+
+    let response = await fetch(URL, {
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    });
+
+    let data = await response.json();
+
+    this.setState({ data });
   }
 
   handleLogin = async(e) => {
@@ -52,6 +73,8 @@ class App extends Component {
       // set the token we recieve into local storage
       localStorage.setItem('token', data.token);
 
+      this.getData();
+
       alert('You are now logged in!');
     } else {
       alert(data.message);
@@ -61,7 +84,12 @@ class App extends Component {
   handleLogOut = (e) => {
     e.preventDefault();
 
-    this.setState({ logged_in: false });
+    this.setState({
+      logged_in: false,
+      data: {
+        "username": "Unauthorized"
+      }
+    });
 
     localStorage.clear();
 
@@ -112,7 +140,7 @@ class App extends Component {
     return(
       <div className="App">
         <Header handleLogOut={this.handleLogOut}/>
-        <DosBoxx logged_in={this.state.logged_in} handleLogOut={this.handleLogOut} handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
+        <DosBoxx data={this.state.data} logged_in={this.state.logged_in} handleLogOut={this.handleLogOut} handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
       </div>
     );
   }

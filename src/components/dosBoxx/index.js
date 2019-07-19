@@ -20,34 +20,14 @@ class DosBoxx extends Component {
         "past_input": "",
         "command_queue": [
           <Title />
-        ],
-        data: {
-          "username": "Unauthorized"
-        }
+        ]
       }
   }
 
   componentDidMount() {
     if (localStorage.getItem("token")) {
-      this.getData();
+
     }
-  }
-
-  getData = async() => {
-    let token = localStorage.getItem('token');
-
-    const URL = "http://localhost:5000/api/user";
-
-    let response = await fetch(URL, {
-      headers: {
-        'Content-Type': 'application/json',
-        'token': token
-      }
-    });
-
-    let data = await response.json();
-
-    this.setState({ data });
   }
 
   inputReturn = e => {
@@ -78,9 +58,7 @@ class DosBoxx extends Component {
             <Login handleLogin={this.props.handleLogin}/>
           }
           <Register handleRegister={this.props.handleRegister} />
-          <Command data={this.state.data} logged_in={this.props.logged_in} focusInput={this.focusInput} inputReturn={this.inputReturn} />
-
-
+          <Command data={this.props.data} logged_in={this.props.logged_in} focusInput={this.focusInput} inputReturn={this.inputReturn} />
         </div>
       </main>
     );
