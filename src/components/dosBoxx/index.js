@@ -5,8 +5,7 @@ import Command from '../command';
 import History from '../logged_in/history';
 import Goals from '../logged_in/goals';
 import Links from '../logged_in/links';
-import Quit from '../quit';
-import Error from '../logged_in/error';
+import Error from '../error';
 import Help from '../logged_in/help';
 import PastInput from '../logged_in/pastInput';
 import Login from '../logged_out/login';
@@ -20,14 +19,13 @@ class DosBoxx extends Component {
         "past_input": "",
         "command_queue": [
           <Title />
-        ]
+        ],
+        "commands" : {}
       }
   }
 
   componentDidMount() {
-    if (localStorage.getItem("token")) {
-
-    }
+    this.setCommands();
   }
 
   inputReturn = e => {
@@ -45,19 +43,40 @@ class DosBoxx extends Component {
     }
   }
 
+  clear = () => {
+    console.log("cleared");
+    this.setState({"command_queue": []});
+  }
+
+  setCommands = () => {
+    let commands = {
+      "help": [<Help />, "View internet commands"],
+      "clear": [this.clear, "Purge all past inputs from your internet browser"]
+    }
+    if (localStorage.getItem("token")) {
+      commands["history"] = [<History />, "View my life's story"];
+      commands["goals"] = [<Goals />, "View my life's ambitions"];
+      commands["links"] = [<Links />, "See my connected internet based web appication pages"];
+      commands["logout"] = [this.props.handleLogOut, "Log out of your account"];
+    } else {
+      commands["login"] = [<Login handleLogin={this.props.handleLogin}/>, "Log in to your account"];
+      commands["register"] = [<Register handleRegister={this.props.handleRegister} />, "Register a new account"];
+    }
+
+    this.setState({"commands": commands})
+  }
+
   render() {
+    console.log(this.state["commands"]);
     return(
       <main>
         <div id="dosBoxx">
           {
-            this.props.logged_in ?
             this.state.command_queue[0] &&
             this.state.command_queue.map(command =>
               command
-            ) :
-            <Login handleLogin={this.props.handleLogin}/>
+            )
           }
-          <Register handleRegister={this.props.handleRegister} />
           <Command data={this.props.data} logged_in={this.props.logged_in} focusInput={this.focusInput} inputReturn={this.inputReturn} />
         </div>
       </main>
