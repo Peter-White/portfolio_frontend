@@ -31,15 +31,19 @@ class DosBoxx extends Component {
   inputReturn = e => {
     var keycode = (e.keyCode ? e.keyCode : e.which);
     if (keycode == '13') {
-      const past = <PastInput pastInput={this.state.current_dir + " " + e.target.value} />;
-
-      this.setState(() => {
-        let list = this.state.command_queue.push(past);
-        return {
-          list
-        };
-      });
-      document.getElementById("command-input").focus();
+      let command = e.target.value.toLowerCase();
+      command = command.replace(/\s+/g, '');
+      if(this.state["commands"][command] != undefined) {
+        if("$$typeof" in this.state["commands"][command][0]) {
+          let command_queue = this.state["command_queue"];
+          command_queue.push(this.state["commands"][command][0]);
+          console.log(command_queue);
+        } else {
+          this.state["commands"][command][0]();
+        }
+      } else {
+        console.log(<Error command={command} />);
+      }
     }
   }
 
@@ -67,7 +71,6 @@ class DosBoxx extends Component {
   }
 
   render() {
-    console.log(this.state["commands"]);
     return(
       <main>
         <div id="dosBoxx">
