@@ -6,7 +6,7 @@ class Error extends Component {
     return (
       <div className="row cell">
         <div className="col-md-12">
-          <h4>'{this.props.command}' not recognized</h4>
+          <p>'{this.props.command}' not a recognized or available command</p>
         </div>
       </div>
     );

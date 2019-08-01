@@ -6,7 +6,7 @@ import History from '../logged_in/history';
 import Goals from '../logged_in/goals';
 import Links from '../logged_in/links';
 import Error from '../error';
-import Help from '../logged_in/help';
+import Help from '../help';
 import PastInput from '../logged_in/pastInput';
 import Login from '../logged_out/login';
 import Register from '../logged_out/register';
@@ -36,13 +36,19 @@ class DosBoxx extends Component {
       if(this.state["commands"][command] != undefined) {
         if("$$typeof" in this.state["commands"][command][0]) {
           let command_queue = this.state["command_queue"];
+          if(command === "login" || command === "register") {
+            this.clear();
+            command_queue = []
+          }
           command_queue.push(this.state["commands"][command][0]);
-          console.log(command_queue);
+          this.setState({"command_queue": command_queue});
         } else {
           this.state["commands"][command][0]();
         }
       } else {
-        console.log(<Error command={command} />);
+        let command_queue = this.state["command_queue"];
+        command_queue.push(<Error command={command} />);
+        this.setState({"command_queue": command_queue});
       }
     }
   }
@@ -54,9 +60,8 @@ class DosBoxx extends Component {
 
   setCommands = () => {
     let commands = {
-      "help": [<Help />, "View internet commands"],
       "clear": [this.clear, "Purge all past inputs from your internet browser"]
-    }
+    };
     if (localStorage.getItem("token")) {
       commands["history"] = [<History />, "View my life's story"];
       commands["goals"] = [<Goals />, "View my life's ambitions"];
@@ -66,6 +71,8 @@ class DosBoxx extends Component {
       commands["login"] = [<Login handleLogin={this.props.handleLogin}/>, "Log in to your account"];
       commands["register"] = [<Register handleRegister={this.props.handleRegister} />, "Register a new account"];
     }
+
+    commands["help"] = [<Help commands={commands}/>, "View internet commands"];
 
     this.setState({"commands": commands})
   }

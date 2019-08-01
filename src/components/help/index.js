@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import './index.css';
 
 class Help extends Component {
-  constructor() {
-    super();
 
-  }
   render() {
     return(
       <div className="row cell">
         <div className="col-md-6">
-          <ul>
+        <table>
+          <tbody>
             {
               Object.keys(this.props.commands)[0] &&
-              Object.keys(this.props.commands).map(key =>
-                <li><p>{key} - {this.props.commands[key]}</p></li>
+              Object.keys(this.props.commands).map((command, index) =>
+                <tr key={index}>
+                  <td className="command">{command}</td>
+                  <td className="description">{this.props.commands[command][1]}</td>
+                </tr>
               )
             }
-          </ul>
+          </tbody>
+        </table>
         </div>
       </div>
     );

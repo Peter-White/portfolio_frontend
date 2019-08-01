@@ -139,7 +139,7 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <Header handleLogOut={this.handleLogOut}/>
+        <Header />
         <DosBoxx data={this.state.data} logged_in={this.state.logged_in} handleLogOut={this.handleLogOut} handleLogin={this.handleLogin} handleRegister={this.handleRegister} />
       </div>
     );
