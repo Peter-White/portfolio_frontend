@@ -42,8 +42,6 @@ class App extends Component {
   }
 
   handleLogin = async(e) => {
-    e.preventDefault();
-
     let email = e.target.elements.email.value;
     let password = e.target.elements.password.value;
 
@@ -75,15 +73,13 @@ class App extends Component {
 
       this.getData();
 
-      alert('You are now logged in!');
+      return true;
     } else {
-      alert(data.message);
+      return false;
     }
   }
 
-  handleLogOut = (e) => {
-    e.preventDefault();
-
+  handleLogOut = () => {
     this.setState({
       logged_in: false,
       data: {

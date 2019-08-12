@@ -13,13 +13,13 @@ class Login extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <form className="loginForm" onSubmit={this.props.handleLogin}>
+            <form className="loginForm" onSubmit={this.props.handleLoginForm}>
               <div className="form-group">
-                <label for="emailInput">Electronic Internet Mail Address</label>
+                <label htmlFor="emailInput">Electronic Internet Mail Address</label>
                 <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" />
               </div>
               <div className="form-group">
-                <label for="passwordInput">Password</label>
+                <label htmlFor="passwordInput">Password</label>
                 <input type="password" className="form-control" id="passwordInput"
 name="password" />
               </div>

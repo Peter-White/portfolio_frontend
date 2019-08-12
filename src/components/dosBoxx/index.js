@@ -10,6 +10,7 @@ import Help from '../help';
 import PastInput from '../logged_in/pastInput';
 import Login from '../logged_out/login';
 import Register from '../logged_out/register';
+import Message from '../message';
 
 class DosBoxx extends Component {
 
@@ -54,8 +55,26 @@ class DosBoxx extends Component {
   }
 
   clear = () => {
-    console.log("cleared");
     this.setState({"command_queue": []});
+  }
+
+  handleLoginForm = e => {
+    e.preventDefault();
+
+    this.props.handleLogin(e).then(result => {
+      this.clear();
+      if(result) {
+        let command_queue = this.state["command_queue"];
+        command_queue.push(<Message message={`Welcome back ${this.props.username}`} />);
+        this.setState({"command_queue": command_queue});
+
+        this.setCommands();
+      } else {
+        let command_queue = this.state["command_queue"];
+        command_queue.push(<Message message={"Account not found"} />);
+        this.setState({"command_queue": command_queue});
+      }
+    });
   }
 
   setCommands = () => {
@@ -68,13 +87,13 @@ class DosBoxx extends Component {
       commands["links"] = [<Links />, "See my connected internet based web appication pages"];
       commands["logout"] = [this.props.handleLogOut, "Log out of your account"];
     } else {
-      commands["login"] = [<Login handleLogin={this.props.handleLogin}/>, "Log in to your account"];
+      commands["login"] = [<Login handleLoginForm={this.handleLoginForm}/>, "Log in to your account"];
       commands["register"] = [<Register handleRegister={this.props.handleRegister} />, "Register a new account"];
     }
 
     commands["help"] = [<Help commands={commands}/>, "View internet commands"];
 
-    this.setState({"commands": commands})
+    this.setState({"commands": commands});
   }
 
   render() {
