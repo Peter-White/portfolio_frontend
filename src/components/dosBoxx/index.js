@@ -46,6 +46,10 @@ class DosBoxx extends Component {
         } else {
           this.state["commands"][command][0]();
         }
+      } else if (command === "") {
+        let command_queue = this.state["command_queue"];
+        command_queue.push(<Message message={`Please type a valid command. Please type "help" to see the valid commands.`} />);
+        this.setState({"command_queue": command_queue});
       } else {
         let command_queue = this.state["command_queue"];
         command_queue.push(<Error command={command} />);
@@ -65,7 +69,7 @@ class DosBoxx extends Component {
       this.clear();
       if(result) {
         let command_queue = this.state["command_queue"];
-        command_queue.push(<Message message={`Welcome back ${this.props.username}`} />);
+        command_queue.push(<Message message={`Hello`} />);
         this.setState({"command_queue": command_queue});
 
         this.setCommands();
@@ -77,6 +81,24 @@ class DosBoxx extends Component {
     });
   }
 
+  handleLogOutCommand = () => {
+    this.props.handleLogOut();
+
+    let command_queue = this.state["command_queue"];
+    command_queue.push(<Message message={`Goodbye`} />);
+    this.setState({"command_queue": command_queue});
+
+    this.setCommands();
+  }
+
+  handleRegisterForm = e => {
+    e.preventDefault();
+
+    this.props.handleRegister(e).then(result => {
+      console.log(result);
+    });
+  }
+
   setCommands = () => {
     let commands = {
       "clear": [this.clear, "Purge all past inputs from your internet browser"]
@@ -85,10 +107,10 @@ class DosBoxx extends Component {
       commands["history"] = [<History />, "View my life's story"];
       commands["goals"] = [<Goals />, "View my life's ambitions"];
       commands["links"] = [<Links />, "See my connected internet based web appication pages"];
-      commands["logout"] = [this.props.handleLogOut, "Log out of your account"];
+      commands["logout"] = [this.handleLogOutCommand, "Log out of your account"];
     } else {
       commands["login"] = [<Login handleLoginForm={this.handleLoginForm}/>, "Log in to your account"];
-      commands["register"] = [<Register handleRegister={this.props.handleRegister} />, "Register a new account"];
+      commands["register"] = [<Register handleRegisterForm={this.handleRegisterForm} />, "Register a new account"];
     }
 
     commands["help"] = [<Help commands={commands}/>, "View internet commands"];

@@ -88,8 +88,6 @@ class App extends Component {
     });
 
     localStorage.clear();
-
-    alert("You are now logged out");
   }
 
   handleRegister = async(e) => {
@@ -127,8 +125,10 @@ class App extends Component {
     // setup message saying register or error
     if (data.message === 'success') {
       alert('Your are now registered!');
+      return true;
     } else {
       alert(data.message);
+      return false;
     }
   }
 

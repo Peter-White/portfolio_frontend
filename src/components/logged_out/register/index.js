@@ -13,7 +13,7 @@ class Register extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <form className="registryForm" onSubmit={this.props.handleRegister}>
+            <form className="registryForm" onSubmit={this.props.handleRegisterForm}>
               <div className="form-group">
                 <label for="first_nameInput">First Name</label>
                 <input type="text" className="form-control" id="first_nameInput" aria-describedby="first_nameHelp" name="first_name" />
