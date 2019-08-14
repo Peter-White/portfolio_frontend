@@ -119,12 +119,8 @@ class App extends Component {
 
     let data = await response.json();
 
-    console.log(Object.keys(data)[0]);
-    console.log(Object.keys(data)[0] === "error");
-
     // setup message saying register or error
     if (data.message === 'success') {
-      alert('Your are now registered!');
       return true;
     } else {
       alert(data.message);

@@ -39,7 +39,7 @@ class DosBoxx extends Component {
           let command_queue = this.state["command_queue"];
           if(command === "login" || command === "register") {
             this.clear();
-            command_queue = []
+            command_queue = [];
           }
           command_queue.push(this.state["commands"][command][0]);
           this.setState({"command_queue": command_queue});
