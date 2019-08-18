@@ -91,11 +91,12 @@ class DosBoxx extends Component {
     this.setCommands();
   }
 
-  handleRegisterForm = e => {
-    e.preventDefault();
-
-    this.props.handleRegister(e).then(result => {
-      console.log(result);
+  handleRegisterFormData = data => {
+    this.props.handleRegister(data).then(result => {
+      this.clear();
+      let command_queue = this.state["command_queue"];
+      command_queue.push(<Message message={`You are now registered. Go to "login" to log in.`} />);
+      this.setState({"command_queue": command_queue});
     });
   }
 
@@ -110,7 +111,7 @@ class DosBoxx extends Component {
       commands["logout"] = [this.handleLogOutCommand, "Log out of your account"];
     } else {
       commands["login"] = [<Login handleLoginForm={this.handleLoginForm}/>, "Log in to your account"];
-      commands["register"] = [<Register handleRegisterForm={this.handleRegisterForm} />, "Register a new account"];
+      commands["register"] = [<Register handleRegisterFormData={this.handleRegisterFormData} />, "Register a new account"];
     }
 
     commands["help"] = [<Help commands={commands}/>, "View internet commands"];

@@ -45,7 +45,22 @@ class Register extends Component {
     }
 
     if(errors.length < 1) {
-      this.validateRegistry(e.target.username.value, e.target.email.value);
+      let data = {
+        "first_name":e.target.first_name.value,
+        "last_name":e.target.last_name.value,
+        "company":e.target.company.value,
+        "username":e.target.username.value,
+        "email":e.target.email.value,
+        "password":e.target.password.value
+      };
+      this.validateRegistry(data["username"], data["email"]).then(check => {
+        if(check) {
+          this.props.handleRegisterFormData(data);
+        } else {
+          errors.push("Email or Username already registered");
+          this.setState({errors:errors})
+        }
+      });
     } else {
       this.setState({errors:errors})
     }
@@ -61,8 +76,6 @@ class Register extends Component {
       { expiresIn: '1h' } // expires in 1 hour
     );
 
-    console.log(token);
-
     let response = await fetch(URL, {
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +85,11 @@ class Register extends Component {
 
     let data = await response.json();
 
-    console.log(data);
+    if(Object.keys(data).length < 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   render() {

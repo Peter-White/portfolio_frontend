@@ -90,21 +90,13 @@ class App extends Component {
     localStorage.clear();
   }
 
-  handleRegister = async(e) => {
-    e.preventDefault();
-
-    let first_name = e.target.elements.first_name.value;
-    let last_name = e.target.elements.last_name.value;
-    let company = e.target.elements.company.value;
-    let username = e.target.elements.username.value;
-    let email = e.target.elements.email.value;
-    let password = e.target.elements.password.value;
+  handleRegister = async(formData) => {
 
     const URL = "http://127.0.0.1:5000/api/register";
 
     // encrypt a token with the proper payload info to send to our api
     let token = jwt.sign(
-      { 'first_name': first_name, 'last_name': last_name, 'company': company, 'email': email, 'password': password, 'username': username },
+      { 'first_name': formData["first_name"], 'last_name': formData["last_name"], 'company': formData["company"], 'email': formData["email"], 'password': formData["password"], 'username': formData["username"] },
       SECRET_KEY,
       { expiresIn: '1h' } // expires in 1 hour
     );
@@ -120,10 +112,9 @@ class App extends Component {
     let data = await response.json();
 
     // setup message saying register or error
-    if (data.message === 'success') {
+    if (Object.keys(data)[0] === 'success') {
       return true;
     } else {
-      alert(data.message);
       return false;
     }
   }
