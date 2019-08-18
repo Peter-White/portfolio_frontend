@@ -7,7 +7,7 @@ import Goals from '../logged_in/goals';
 import Links from '../logged_in/links';
 import Error from '../error';
 import Help from '../help';
-import PastInput from '../logged_in/pastInput';
+import PastInput from '../pastInput';
 import Login from '../logged_out/login';
 import Register from '../logged_out/register';
 import Message from '../message';
@@ -17,7 +17,6 @@ class DosBoxx extends Component {
   constructor() {
       super();
       this.state = {
-        "past_input": "",
         "command_queue": [
           <Title />
         ],
@@ -32,11 +31,13 @@ class DosBoxx extends Component {
   inputReturn = e => {
     var keycode = (e.keyCode ? e.keyCode : e.which);
     if (keycode == '13') {
+      let command_queue = this.state["command_queue"];
+      let pastInput = <PastInput username={this.props.data["username"]} command={e.target.value} />;
+      command_queue.push(pastInput);
       let command = e.target.value.toLowerCase();
       command = command.replace(/\s+/g, '');
       if(this.state["commands"][command] != undefined) {
         if("$$typeof" in this.state["commands"][command][0]) {
-          let command_queue = this.state["command_queue"];
           if(command === "login" || command === "register") {
             this.clear();
             command_queue = [];
