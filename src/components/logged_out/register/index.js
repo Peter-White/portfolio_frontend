@@ -94,56 +94,58 @@ class Register extends Component {
 
   render() {
     return(
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <h4>Register a new DubiOS Account</h4>
-            <p>(Brought to you by Magiforms. Magically bringing you registry forms from the far future.)</p>
-            <ul>
-              {
-                this.state.errors[0] &&
-                this.state.errors.map((error, index) =>
-                  <li key={index}>{error}</li>
-                )
-              }
-            </ul>
+      <div className="row cell">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h4>Register a new DubiOS Account</h4>
+              <p>(Brought to you by Magiforms. Magically bringing you registry forms from the far future.)</p>
+              <ul>
+                {
+                  this.state.errors[0] &&
+                  this.state.errors.map((error, index) =>
+                    <li key={index}>{error}</li>
+                  )
+                }
+              </ul>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <form className="registryForm" onSubmit={this.passRegistery}>
-              <div className="form-group">
-                <label htmlFor="first_nameInput">First Name</label>
-                <input type="text" className="form-control" id="first_nameInput" aria-describedby="first_nameHelp" name="first_name" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="last_nameInput">Last Name</label>
-                <input type="text" className="form-control" id="last_nameInput" aria-describedby="last_nameHelp" name="last_name" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="companyInput">Company</label>
-                <input type="text" className="form-control" id="companyInput" aria-describedby="companyHelp" name="company" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="username">Username</label>
-                <input className="form-control" type="text" name="username" id="usernameInput" aria-describedby="usernameHelp" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="emailInput">Electronic Internet Mail Address</label>
-                <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="passwordInput">Password</label>
-                <input type="password" className="form-control" id="passwordInput"
-name="password" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="confirmPasswordInput">Confirm Password</label>
-                <input type="password" className="form-control" id="confirmPasswordInput"
-name="confirmPassword" />
-              </div>
-              <button type="submit" className="btn btn-primary register-btn">Submit</button>
-            </form>
+          <div className="row">
+            <div className="col-md-12">
+              <form className="registryForm" onSubmit={this.passRegistery}>
+                <div className="form-group">
+                  <label htmlFor="first_nameInput">First Name</label>
+                  <input type="text" className="form-control" id="first_nameInput" aria-describedby="first_nameHelp" name="first_name" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="last_nameInput">Last Name</label>
+                  <input type="text" className="form-control" id="last_nameInput" aria-describedby="last_nameHelp" name="last_name" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="companyInput">Company</label>
+                  <input type="text" className="form-control" id="companyInput" aria-describedby="companyHelp" name="company" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="username">Username</label>
+                  <input className="form-control" type="text" name="username" id="usernameInput" aria-describedby="usernameHelp" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="emailInput">Electronic Internet Mail Address</label>
+                  <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="passwordInput">Password</label>
+                  <input type="password" className="form-control" id="passwordInput"
+        name="password" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="confirmPasswordInput">Confirm Password</label>
+                  <input type="password" className="form-control" id="confirmPasswordInput"
+        name="confirmPassword" />
+                </div>
+                <button type="submit" className="btn btn-primary register-btn">Submit</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
