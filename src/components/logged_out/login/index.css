@@ -31,3 +31,7 @@ form.loginForm input:focus {
 form.loginForm {
     padding-top: 50px;
 }
+
+div.cell {
+    padding-top: 3%;
+}

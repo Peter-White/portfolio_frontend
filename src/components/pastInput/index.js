@@ -7,8 +7,8 @@ class PastInput extends Component {
       <div class="row cell command">
         <div class="col-md-12">
           <p>
-            <span class="user">{this.props.username}&gt;</span>&nbsp;
-            <span class="command">{this.props.command}</span>
+            <span className="user">{this.props.username}&gt;</span>&nbsp;
+            <span className="command">{this.props.command}</span>
           </p>
         </div>
       </div>

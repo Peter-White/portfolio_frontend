@@ -28,34 +28,30 @@ class DosBoxx extends Component {
     this.setCommands();
   }
 
-  inputReturn = e => {
-    var keycode = (e.keyCode ? e.keyCode : e.which);
-    if (keycode == '13') {
-      let command_queue = this.state["command_queue"];
-      let pastInput = <PastInput username={this.props.data["username"]} command={e.target.value} />;
-      command_queue.push(pastInput);
-      let command = e.target.value.toLowerCase();
-      command = command.replace(/\s+/g, '');
-      if(this.state["commands"][command] != undefined) {
-        if("$$typeof" in this.state["commands"][command][0]) {
-          if(command === "login" || command === "register") {
-            this.clear();
-            command_queue = [];
-          }
-          command_queue.push(this.state["commands"][command][0]);
-          this.setState({"command_queue": command_queue});
-        } else {
-          this.state["commands"][command][0]();
+  inputReturn = command => {
+    let command_queue = this.state["command_queue"];
+    let pastInput = <PastInput username={this.props.data["username"]} command={command} />;
+    command_queue.push(pastInput);
+    command = command.toLowerCase().replace(/\s+/g, '');
+    if(this.state["commands"][command] != undefined) {
+      if("$$typeof" in this.state["commands"][command][0]) {
+        if(command === "login" || command === "register") {
+          this.clear();
+          command_queue = [];
         }
-      } else if (command === "") {
-        let command_queue = this.state["command_queue"];
-        command_queue.push(<Message message={`Please type a valid command. Please type "help" to see the valid commands.`} />);
+        command_queue.push(this.state["commands"][command][0]);
         this.setState({"command_queue": command_queue});
       } else {
-        let command_queue = this.state["command_queue"];
-        command_queue.push(<Error command={command} />);
-        this.setState({"command_queue": command_queue});
+        this.state["commands"][command][0]();
       }
+    } else if (command === "") {
+      let command_queue = this.state["command_queue"];
+      command_queue.push(<Message message={`Please type a valid command. Please type "help" to see the valid commands.`} />);
+      this.setState({"command_queue": command_queue});
+    } else {
+      let command_queue = this.state["command_queue"];
+      command_queue.push(<Error command={command} />);
+      this.setState({"command_queue": command_queue});
     }
   }
 

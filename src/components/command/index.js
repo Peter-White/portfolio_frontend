@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import './index.css';
 
 class Command extends Component {
+
+  handleKeyPress = (e) => {
+    var keycode = (e.keyCode ? e.keyCode : e.which);
+    if (keycode == '13') {
+      this.props.inputReturn(e.target.value);
+      e.target.value = "";
+    }
+  }
+
   render() {
     return(
       <div className="row cell command">
@@ -10,7 +19,7 @@ class Command extends Component {
             <div className="input-group-prepend">
               <span className="input-group-text" id="path">{this.props.data.username}></span>
               </div>
-              <input type="text" onKeyPress={this.props.inputReturn} className="form-control" id="command-input" autoComplete="off" aria-describedby="basic-addon3"/>
+              <input type="text" onKeyPress={this.handleKeyPress} className="form-control" id="command-input" autoComplete="off" aria-describedby="basic-addon3"/>
             </div>
           </div>
         </div>

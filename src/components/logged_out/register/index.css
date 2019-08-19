@@ -19,3 +19,7 @@ form.registryForm input {
 form.registryForm {
     padding-top: 50px;
 }
+
+div.cell {
+    padding-top: 3%;
+}
