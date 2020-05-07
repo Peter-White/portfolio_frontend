@@ -125,7 +125,7 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <Project id={1} />
+        <Skills />
       </div>
     );
   }

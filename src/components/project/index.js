@@ -18,7 +18,7 @@ class Project extends Component {
 
   render () {
     let projectData = (Object.keys(this.state["data"]).length > 0) ?
-      <div class="col-md-12">
+      <div className="col-md-12">
         <h3>{this.state["data"].id}</h3>
         <h3>{this.state["data"].title}</h3>
         <h3>{this.state["data"].description}</h3>
@@ -26,17 +26,17 @@ class Project extends Component {
         <h3>{this.state["data"].github}</h3>
       </div>
       :
-      <div class="col-md-12">
+      <div className="col-md-12">
         <h3>No Project Found</h3>
       </div>;
     return(
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
             <h1>Project</h1>
           </div>
         </div>
-        <div class="row">
+        <div className="row">
           {projectData}
         </div>
       </div>

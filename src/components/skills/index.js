@@ -11,33 +11,41 @@ class Skills extends Component {
   }
 
   componentDidMount(){
-    backend.get(`http://localhost:5000/api/skills/`).then((res) => {
+    backend.get(`skills`).then((res) => {
       this.setState({"data" : res.data});
     });
   }
 
   render () {
     return(
-      <div>
-        <h1>Skills</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Year Started</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state["data"].map((data) => {
-              return(<tr key={data.id}>
-                <td>{data.title}</td>
-                <td>{data.category}</td>
-                <td>{data.year_started}</td>
-              </tr>)
-            })}
-          </tbody>
-        </table>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1>Skills</h1>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Year Started</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state["data"].map((data) => {
+                  return(<tr key={data.id}>
+                    <td>{data.title}</td>
+                    <td>{data.category}</td>
+                    <td>{data.year_started}</td>
+                  </tr>)
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     );
   }

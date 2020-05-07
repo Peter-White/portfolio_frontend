@@ -18,24 +18,24 @@ class Skill extends Component {
 
   render() {
     let content = (Object.keys(this.state["data"]).length > 0) ?
-      <div class="col-md-12">
+      <div className="col-md-12">
         <h3>{this.state["data"].id}</h3>
         <h3>{this.state["data"].title}</h3>
         <h3>{this.state["data"].category}</h3>
         <h3>{this.state["data"].year_started}</h3>
       </div>
       :
-      <div class="col-md-12">
+      <div className="col-md-12">
         <h1>No Data</h1>;
       </div>;
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
             <h1>Skill</h1>
           </div>
         </div>
-        <div class="row">
+        <div className="row">
           {content}
         </div>
       </div>
