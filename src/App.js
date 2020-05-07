@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// import DosBoxx from './components/dosBoxx';
+import DossBoxx from './components/dossboxx';
 import Skills from './components/skills';
 import Skill from './components/skill';
 import Projects from './components/projects';
@@ -125,7 +125,7 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <Skills />
+        <DossBoxx />
       </div>
     );
   }
