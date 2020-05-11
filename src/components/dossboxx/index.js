@@ -4,19 +4,17 @@ import Skills from '../skills';
 import Skill from '../skill';
 import Projects from '../projects';
 import Project from '../project';
+import Error from '../error';
 
 class DossBoxx extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      "content" : this.props.command
-    };
+  componentDidMount(){
+
   }
 
   render () {
     return(
       <div id="dossboxx">
-        <h5>{this.state["content"]}</h5>
+        <Error message={"command not found"}/>
       </div>
     );
   }

@@ -18,7 +18,8 @@ class App extends Component {
       logged_in: false,
       data: {
         "username": "Unauthorized"
-      }
+      },
+      command: "home"
     }
   }
 
@@ -125,14 +126,14 @@ class App extends Component {
   // }
 
   inputReturn = (data) => {
-    console.log(data);
+    this.setState({command : data});
   }
 
   render() {
     return(
       <div className="App container-fluid">
         <Header />
-        <DossBoxx command="DossBoxx" />
+        <DossBoxx command={this.state.command} />
         <Command inputReturn={this.inputReturn}/>
       </div>
     );

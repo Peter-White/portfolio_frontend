@@ -1,0 +1,23 @@
+h3, h1 {
+  text-align: center;
+}
+
+@keyframes blink {
+  from {color: lightgreen;}
+  10% {color: lightgreen;}
+  20% {color: lightgreen;}
+  30% {color: lightgreen;}
+  40% {color: lightgreen;}
+  50% {color: lightgreen;}
+  53% {color: lightgreen;}
+  55% {color: #001501;}
+  60% {color: #001501;}
+  70% {color: #001501;}
+  80% {color: #001501;}
+  90% {color: #001501;}
+  to {color: #001501;}
+}
+
+h1 {
+  animation: blink 1s infinite;
+}
