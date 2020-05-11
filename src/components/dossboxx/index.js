@@ -6,10 +6,17 @@ import Projects from '../projects';
 import Project from '../project';
 
 class DossBoxx extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      "content" : this.props.command
+    };
+  }
+
   render () {
     return(
       <div id="dossboxx">
-        <h5>DossBoxx</h5>
+        <h5>{this.state["content"]}</h5>
       </div>
     );
   }

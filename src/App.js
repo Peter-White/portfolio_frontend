@@ -124,12 +124,16 @@ class App extends Component {
   //   }
   // }
 
+  inputReturn = (data) => {
+    console.log(data);
+  }
+
   render() {
     return(
       <div className="App container-fluid">
         <Header />
-        <DossBoxx />
-        <Command />
+        <DossBoxx command="DossBoxx" />
+        <Command inputReturn={this.inputReturn}/>
       </div>
     );
   }
