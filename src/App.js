@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './components/header';
 import DossBoxx from './components/dossboxx';
 import Skills from './components/skills';
 import Skill from './components/skill';
 import Projects from './components/projects';
 import Project from './components/project';
+import Command from './components/command';
 import SECRET_KEY from './config.js';
 let jwt = require('jsonwebtoken');
 
@@ -124,8 +126,10 @@ class App extends Component {
 
   render() {
     return(
-      <div className="App">
+      <div className="App container-fluid">
+        <Header />
         <DossBoxx />
+        <Command />
       </div>
     );
   }

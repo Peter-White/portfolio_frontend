@@ -1,0 +1,25 @@
+a.navbar-brand {
+  color: lightgreen;
+}
+
+a.navbar-brand:hover {
+    color: darkgreen;
+}
+
+a.nav-item.nav-link {
+    color: lightgreen;
+}
+
+a.nav-item.nav-link:hover {
+    color: darkgreen;
+}
+
+a.nav-item.nav-link.active {
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+.nav-container {
+  border-bottom: dashed lightgreen;
+  margin-bottom: 20px;
+}

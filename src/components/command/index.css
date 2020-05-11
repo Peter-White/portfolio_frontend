@@ -1,0 +1,24 @@
+.command {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-top: dashed lightgreen;
+  margin-top: 20px;
+}
+
+input#command-input {
+  color: lightgreen;
+  background: #001501;
+  border-color: #001501;
+}
+
+span#path {
+  padding: 0px;
+  color: lightgreen;
+  background-color: #001501;
+  border-color: #001501;
+}
+
+.input-group.mb-3 {
+    padding-top: 10px;
+}
