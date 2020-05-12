@@ -1,6 +1,6 @@
 .command {
-  position: absolute;
-  bottom: 0px;
+  /* position: absolute; */
+  /* bottom: 0px; */
   width: 100%;
   border-top: dashed lightgreen;
   margin-top: 20px;
