@@ -7,6 +7,11 @@ class History extends Component {
       <div className="container history">
         <div className="row">
           <div className="col-md-12">
+            <h3>History:</h3>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
             <p>Velit concursionibus aliquip amet constias, sunt singulis incididunt, senserit
               quid quis nostrud esse, esse iis singulis, aliquip adipisicing qui singulis,
               dolor familiaritatem vidisse eram nescius ita eiusmod eu anim eu ita minim velit
