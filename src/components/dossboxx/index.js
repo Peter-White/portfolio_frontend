@@ -18,7 +18,7 @@ class DossBoxx extends Component {
         case 'skills':
           return <Skills inputReturn={this.props.inputReturn} />;
         case 'skill':
-          return <Skill id={command["id"]} />;
+          return <Skill inputReturn={this.props.inputReturn} id={command["id"]} />;
         case 'projects':
           return <Projects />;
         case 'project':

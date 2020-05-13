@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import backend from "../../apis/backend";
+import Loading from '../loading';
 
 class Skill extends Component {
   constructor(props){
@@ -16,6 +17,11 @@ class Skill extends Component {
     });
   }
 
+  backToSkills = (e) => {
+    e.preventDefault();
+    this.props.inputReturn("skills");
+  };
+
   render() {
     let content = (Object.keys(this.state["data"]).length > 0) ?
       <div className="col-md-12">
@@ -28,18 +34,28 @@ class Skill extends Component {
       <div className="col-md-12">
         <h1>No Data</h1>;
       </div>;
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <h1>Skill</h1>
+
+    if(Object.keys(this.state["data"]).length < 1) {
+      return <Loading />;
+    } else {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Skill</h1>
+            </div>
+          </div>
+          <div className="row">
+            {content}
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <a className="back" href="#" onClick={this.backToSkills}><h3>Back to Skills</h3></a>
+            </div>
           </div>
         </div>
-        <div className="row">
-          {content}
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
