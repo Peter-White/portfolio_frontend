@@ -21,9 +21,9 @@ class History extends Component {
               excepteur familiaritatem. Senserit si quamquam hic laborum aut quibusdam.Et et
               malis ipsum esse. Admodum id expetendis hic consequat ubi veniam offendit. Elit
               laborum eu cernantur an sunt reprehenderit iudicem duis incurreret, mentitum quo
-              constias, senserit ita veniam expetendis.
+              constias, senserit ita veniam expetendis.</p>
 
-              Et magna iudicem eiusmod ubi possumus dolore admodum commodo. Te non multos
+            <p>Et magna iudicem eiusmod ubi possumus dolore admodum commodo. Te non multos
               consequat de si et comprehenderit. Vidisse aliqua dolor o summis qui cernantur
               elit vidisse cernantur, noster in proident ut elit, veniam nam officia.Nisi et
               admodum do cillum do cillum constias constias ea occaecat amet labore offendit
@@ -34,15 +34,15 @@ class History extends Component {
               ab fabulas, litteris quo minim vidisse, do duis cohaerescant. Hic elit
               mandaremus despicationes ea hic si noster quis esse id in doctrina
               familiaritatem te mentitum sint cillum quo irure ita non ita fore nostrud, quid
-              iudicem de laboris an appellat est expetendis, quibusdam dolore labore ab duis.
+              iudicem de laboris an appellat est expetendis, quibusdam dolore labore ab duis.</p>
 
-              Arbitror malis offendit. Nisi o cupidatat a multos ubi cernantur aut quid. E
+            <p>Arbitror malis offendit. Nisi o cupidatat a multos ubi cernantur aut quid. E
               irure o aute, pariatur si expetendis, occaecat sunt vidisse, et nisi aliqua o
               aliquip.Vidisse noster quamquam occaecat ex velit expetendis e distinguantur eu
               probant amet ad quibusdam familiaritatem, admodum qui ullamco. Admodum do
-              voluptate. Te aut export esse irure do e illum coniunctione.
+              voluptate. Te aut export esse irure do e illum coniunctione.</p>
 
-              Sed minim concursionibus nam arbitror concursionibus aut incurreret, probant
+            <p>Sed minim concursionibus nam arbitror concursionibus aut incurreret, probant
               amet fugiat deserunt culpa, noster offendit officia. Iis eiusmod in constias,
               hic non quid eram tempor qui labore sed est illum probant in iis fugiat probant
               appellat. Aliqua et laborum ubi nulla.Quibusdam quid consequat, senserit eram
@@ -53,9 +53,9 @@ class History extends Component {
               nescius ad vidisse o e aliqua cohaerescant non ad culpa mandaremus illustriora.
               Ex aliquip eruditionem. Elit ea mentitum si malis e sunt incididunt imitarentur
               do iis eram te legam, esse nam sed dolor excepteur, doctrina non admodum, qui
-              malis arbitror, qui dolore cillum aute deserunt, si enim cillum ab possumus.
+              malis arbitror, qui dolore cillum aute deserunt, si enim cillum ab possumus.</p>
 
-              Dolore te quibusdam et qui iis praetermissum ubi incurreret malis quae occaecat
+            <p>Dolore te quibusdam et qui iis praetermissum ubi incurreret malis quae occaecat
               tempor ita ad fugiat quibusdam iudicem ea vidisse aut incididunt, illum
               efflorescere fabulas noster deserunt non minim in ne sunt eiusmod hic ad veniam
               quamquam senserit. Et dolore cupidatat. Ita nescius iis offendit o cupidatat ita
@@ -71,9 +71,9 @@ class History extends Component {
               noster quae ingeniis dolor, tamen arbitror domesticarum. Quorum ubi laborum,
               labore constias ullamco, iis ubi anim nisi dolor ea si amet proident ullamco et
               tamen aliquip ne reprehenderit, non quid proident, qui noster quae sunt
-              doctrina, enim eu se enim constias.
+              doctrina, enim eu se enim constias.</p>
 
-              A laborum ubi occaecat, cernantur ipsum qui incurreret fidelissimae, tempor
+            <p>A laborum ubi occaecat, cernantur ipsum qui incurreret fidelissimae, tempor
               ullamco de quorum velit in an legam illustriora, quorum est non illum deserunt
               ita id noster dolore non doctrina si quamquam quem sunt de minim de fore o
               offendit. De duis ipsum de appellat ea noster si occaecat quo noster a ad malis
@@ -86,9 +86,9 @@ class History extends Component {
               fabulas, senserit ne amet. Pariatur hic ipsum nescius, proident dolore multos
               officia veniam. Possumus elit deserunt si ab occaecat e commodo, iis dolor
               vidisse officia ne probant qui constias et est fabulas ab possumus, vidisse nam
-              cillum quo et ea esse deserunt an nam fore tamen iis proident.
+              cillum quo et ea esse deserunt an nam fore tamen iis proident.</p>
 
-              Doctrina malis cupidatat. Ea noster distinguantur id hic aliqua irure malis
+            <p>Doctrina malis cupidatat. Ea noster distinguantur id hic aliqua irure malis
               commodo ea dolor ex de cillum litteris in quis do aliquip non illum. Est nisi
               adipisicing ad malis et incididunt, a ingeniis exercitation ita quorum
               transferrem mandaremus irure cupidatat, offendit concursionibus hic quibusdam,
@@ -98,9 +98,9 @@ class History extends Component {
               legam illum expetendis, est se fidelissimae ubi senserit tempor cillum ullamco
               tempor, veniam et singulis. Summis ita iudicem te velit iudicem ubi
               fidelissimae, litteris fore a cernantur transferrem se veniam o mandaremus ab
-              sint.
+              sint.</p>
 
-              Aut quid noster minim mentitum, tempor cupidatat adipisicing ut quis o se quis
+            <p>Aut quid noster minim mentitum, tempor cupidatat adipisicing ut quis o se quis
               consequat do nisi de et quem aliquip, quamquam sunt duis ut fugiat, ad si
               transferrem, nam ipsum iis illum, eram graviterque vidisse fore expetendis. Quis
               litteris officia iis elit senserit ut coniunctione. Te appellat te
@@ -109,26 +109,26 @@ class History extends Component {
               ut exquisitaque ubi tempor doctrina e expetendis do ita ubi sint cernantur,
               velit instituendarum appellat nulla iudicem sed ne quae imitarentur ea ne in
               amet quorum culpa. Probant a ipsum et occaecat non export consequat, se ab
-              illustriora, non quae sed fugiat.
+              illustriora, non quae sed fugiat.</p>
 
-              Nulla pariatur nostrud, iis dolore pariatur. Ne sunt quis illum aliquip ubi e in
+            <p>Nulla pariatur nostrud, iis dolore pariatur. Ne sunt quis illum aliquip ubi e in
               quorum proident, litteris e enim cupidatat iis magna e an cillum ullamco. Se
               duis commodo se an eram se dolore. Fabulas nulla officia hic quo amet duis esse
               nostrud.Sed ad malis dolore culpa hic tempor excepteur excepteur. Aliquip e
               legam nam aliquip nam quorum arbitror quo esse ingeniis illustriora, aut enim
               adipisicing. Appellat se commodo a ad culpa probant laboris iis legam a
               occaecat, aut quem nulla nam laborum, excepteur exquisitaque ubi offendit quo an
-              illum voluptate, veniam ab aliquip, enim vidisse aut mentitum.
+              illum voluptate, veniam ab aliquip, enim vidisse aut mentitum.</p>
 
-              Aute laborum expetendis non hic quae eruditionem a do dolore graviterque, velit
+            <p>Aute laborum expetendis non hic quae eruditionem a do dolore graviterque, velit
               in ullamco ab tamen. Ex ex multos vidisse. An qui fore quibusdam, ut hic elit
               legam sint hic commodo transferrem se aliquip, aut ingeniis transferrem. E
               quorum occaecat distinguantur.Fore distinguantur aliquip enim mandaremus et est
               laborum sempiternum. Veniam deserunt graviterque, ex ex fugiat tempor quis.
               Malis imitarentur constias quae laborum, ab velit distinguantur, ut laborum
-              arbitrantur eu minim quamquam a voluptatibus. Sint consequat eu comprehenderit.
+              arbitrantur eu minim quamquam a voluptatibus. Sint consequat eu comprehenderit.</p>
 
-              Possumus aliqua ab constias praetermissum, eiusmod eram ne ullamco tractavissent
+            <p>Possumus aliqua ab constias praetermissum, eiusmod eram ne ullamco tractavissent
               non magna quo aliquip, nisi a nescius. Quorum iudicem et quem illum o arbitror
               elit cillum ex elit est senserit magna doctrina id consequat tamen expetendis
               iudicem. Ea incurreret coniunctione. Pariatur ipsum labore a tempor.Illum
@@ -139,9 +139,9 @@ class History extends Component {
               proident, eram quibusdam ne reprehenderit. Minim cupidatat est transferrem,
               laborum sint vidisse arbitror et quamquam labore cillum qui culpa, vidisse est
               quis nostrud. Ut enim culpa noster vidisse, constias eram appellat ita ita
-              mandaremus relinqueret quo hic quid laboris.
+              mandaremus relinqueret quo hic quid laboris.</p>
 
-              E noster admodum officia, ut minim elit noster commodo, an illum quamquam
+            <p>E noster admodum officia, ut minim elit noster commodo, an illum quamquam
               incididunt quo deserunt quis constias ingeniis. Se incididunt et vidisse, dolore
               doctrina ne exquisitaque ab enim laboris commodo, ne legam quae ita occaecat.
               Aut elit veniam ea expetendis, cupidatat iis export, offendit nam quis,
