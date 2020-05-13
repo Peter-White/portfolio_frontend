@@ -17,8 +17,11 @@ class Projects extends Component {
     });
   }
 
-  render() {
+  toProject = (e) => {
+    this.props.inputReturn("project", e.target.id);
+  };
 
+  render() {
     const rows = (data) => {
       let rows = [];
 
@@ -29,7 +32,7 @@ class Projects extends Component {
           rows.push(<tr key={rowCount+=1}>{row}</tr>);
           row = [];
         }
-        row.push(<td id={data[i].id}>{data[i].title}</td>);
+        row.push(<td id={data[i].id} onClick={this.toProject}>{data[i].title}</td>);
       }
       rows.push(<tr key={rowCount+=1}>{row}</tr>);
 
@@ -42,7 +45,7 @@ class Projects extends Component {
       return (
         <div>
           <h1>Projects</h1>
-          <table className="table">
+          <table className="table project_table">
             <thead>
             </thead>
             <tbody>

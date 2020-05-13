@@ -1,0 +1,4 @@
+table.table.project_table > tbody > tr > td {
+    border-top: 0px;
+    cursor: pointer;
+}
