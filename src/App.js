@@ -137,7 +137,7 @@ class App extends Component {
     return(
       <div className="App container-fluid">
         <Header />
-        <DossBoxx command={this.state.command} />
+        <DossBoxx inputReturn={this.inputReturn} command={this.state.command} />
         <Command inputReturn={this.inputReturn}/>
       </div>
     );

@@ -12,23 +12,25 @@ class DossBoxx extends Component {
 
   render () {
     const component = (command) => {
-      switch(command) {
+      switch(command["command"]) {
         case 'help':
           return <Help />;
         case 'skills':
           return <Skills />;
         case 'projects':
           return <Projects />;
+        case 'project':
+          return <Project id={command["id"]} />;
         case 'history':
           return <History />;
         default:
-          return <Error  message="command not found" />;
+          return <Error message={`command "${command["command"]}" not found`} />;
       }
     };
 
     return(
       <div id="dossboxx">
-        {component(this.props.command["command"])}
+        {component(this.props.command)}
       </div>
     );
   }

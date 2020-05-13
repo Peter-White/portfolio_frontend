@@ -17,10 +17,14 @@ class Skills extends Component {
     });
   }
 
-  list_items = (skill) => {
-    let items = this.state["data"][skill].map((data) => <li id={data.id}>{data.title}</li>);
+  toSkill = (e) => {
+    console.log(e.target.id);
+  };
 
-    return <ul>{items}</ul>;
+  list_items = (skill) => {
+    let items = this.state["data"][skill].map((data) => <li key={data.id} onClick={this.toSkill} id={data.id}>{data.title}</li>);
+
+    return <ul id="skill_list">{items}</ul>;
   };
 
   render () {
