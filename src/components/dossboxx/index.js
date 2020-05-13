@@ -1,22 +1,34 @@
 import React, {Component} from 'react'
 import './index.css';
+import Help from '../help';
 import History from '../history';
 import Skills from '../skills';
 import Skill from '../skill';
 import Projects from '../projects';
 import Project from '../project';
 import Error from '../error';
-import Loading from '../loading';
 
 class DossBoxx extends Component {
-  componentDidMount(){
-
-  }
 
   render () {
+    const component = (command) => {
+      switch(command) {
+        case 'help':
+          return <Help />;
+        case 'skills':
+          return <Skills />;
+        case 'projects':
+          return <Projects />;
+        case 'history':
+          return <History />;
+        default:
+          return <Error  message="command not found" />;
+      }
+    };
+
     return(
       <div id="dossboxx">
-        <Skills />
+        {component(this.props.command)}
       </div>
     );
   }

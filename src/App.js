@@ -19,7 +19,7 @@ class App extends Component {
       data: {
         "username": "Unauthorized"
       },
-      command: "home"
+      command: "help"
     }
   }
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 class Help extends Component {
   render () {
     return(
-      
+      <h1>Help! I need somebody!</h1>
     );
   }
 }
