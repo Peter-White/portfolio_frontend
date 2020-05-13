@@ -16,7 +16,7 @@ class DossBoxx extends Component {
   render () {
     return(
       <div id="dossboxx">
-        <Loading />
+        <Skills />
       </div>
     );
   }

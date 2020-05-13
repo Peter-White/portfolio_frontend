@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './index.css';
 import backend from "../../apis/backend";
+import Loading from '../loading';
 
 class Skills extends Component {
   constructor(props){
@@ -16,64 +17,64 @@ class Skills extends Component {
     });
   }
 
-  listItems = (skill) => {
+  list_items = (skill) => {
     let items = this.state["data"][skill].map((data) => <li id={data.id}>{data.title}</li>);
 
     return <ul>{items}</ul>;
   };
 
   render () {
-    return(
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-12">
-            <h1>Skills</h1>
+
+    if(Object.keys(this.state["data"]).length < 1) {
+      return <Loading />;
+    } else {
+      return(
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Skills</h1>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-3">
+              <h3>Database Tools</h3>
+              {this.list_items("database")}
+            </div>
+            <div className="col-md-3">
+              <h3>Environment</h3>
+              {this.list_items("environment")}
+            </div>
+            <div className="col-md-3">
+              <h3>Expertise</h3>
+              {this.list_items("expertise")}
+            </div>
+            <div className="col-md-3">
+              <h3>Platform</h3>
+              {this.list_items("platform")}
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-3">
+              <h3>Framework</h3>
+              {this.list_items("framework")}
+            </div>
+            <div className="col-md-3">
+              <h3>Language</h3>
+              {this.list_items("language")}
+            </div>
+            <div className="col-md-3">
+              <h3>Library</h3>
+              {this.list_items("library")}
+            </div>
+            <div className="col-md-3">
+              <h3>Tool</h3>
+              {this.list_items("tool")}
+            </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-3">
-            <h3>Database Tools</h3>
-          </div>
-          <div className="col-md-3">
-            <h3>Environment</h3>
-            <ul>
-            </ul>
-          </div>
-          <div className="col-md-3">
-            <h3>Expertise</h3>
-            <ul>
-            </ul>
-          </div>
-          <div className="col-md-3">
-            <h3>Platform</h3>
-            <ul>
-            </ul>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-3">
-            <h3>Framework</h3>
-            <ul>
-            </ul>
-          </div>
-          <div className="col-md-3">
-            <h3>Language</h3>
-            <ul>
-            </ul>
-          </div>
-          <div className="col-md-3">
-            <h3>Library</h3>
-            <ul>
-            </ul>
-          </div>
-          <div className="col-md-3">
-            <h3>Tool</h3>
-            <ul>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
+      );
+    }
+
   }
 }
 

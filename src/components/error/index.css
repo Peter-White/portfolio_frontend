@@ -13,3 +13,7 @@ h1.error_title {
   text-align: center;
   animation: blink 1s infinite;
 }
+
+.error {
+  text-align: center;
+}
