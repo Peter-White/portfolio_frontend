@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import backend from "../../apis/backend";
+import Loading from '../loading';
 
 class Projects extends Component {
   constructor(props) {
@@ -17,31 +18,40 @@ class Projects extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Projects</h1>
-          <table>
+
+    const rows = (data) => {
+      let rows = [];
+
+      let rowCount = 0;
+      let row = [];
+      for(let i = 0; i < data.length; i++) {
+        if(i > 0 && i % 5 === 0) {
+          rows.push(<tr key={rowCount+=1}>{row}</tr>);
+          row = [];
+        }
+        row.push(<td id={data[i].id}>{data[i].title}</td>);
+      }
+      rows.push(<tr key={rowCount+=1}>{row}</tr>);
+
+      return rows;
+    };
+
+    if(this.state["data"].length < 1) {
+      return <Loading />;
+    } else {
+      return (
+        <div>
+          <h1>Projects</h1>
+          <table className="table">
             <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>URL</th>
-                <th>GitHub</th>
-              </tr>
             </thead>
             <tbody>
-              {this.state["data"].map((data) => {
-                return(<tr key={data.id}>
-                  <td>{data.title}</td>
-                  <td>{data.description}</td>
-                  <td>{data.url}</td>
-                  <td>{data.github}</td>
-                </tr>)
-              })}
+              {rows(this.state["data"])}
             </tbody>
           </table>
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 
