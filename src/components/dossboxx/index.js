@@ -28,7 +28,7 @@ class DossBoxx extends Component {
 
     return(
       <div id="dossboxx">
-        {component(this.props.command)}
+        {component(this.props.command["command"])}
       </div>
     );
   }

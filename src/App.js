@@ -19,7 +19,7 @@ class App extends Component {
       data: {
         "username": "Unauthorized"
       },
-      command: "help"
+      command: { "command" : "help", id : -1 }
     }
   }
 
@@ -125,8 +125,12 @@ class App extends Component {
   //   }
   // }
 
-  inputReturn = (data) => {
-    this.setState({command : data});
+  inputReturn = (data, id = -1) => {
+    let comData = {
+      "command" : data,
+      "id" : id
+    };
+    this.setState({command : comData});
   }
 
   render() {
