@@ -18,7 +18,7 @@ class Skills extends Component {
   }
 
   toSkill = (e) => {
-    console.log(e.target.id);
+    this.props.inputReturn("skill", e.target.id);
   };
 
   list_items = (skill) => {

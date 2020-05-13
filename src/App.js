@@ -134,6 +134,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.command);
     return(
       <div className="App container-fluid">
         <Header />
