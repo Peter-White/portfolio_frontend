@@ -1,4 +1,4 @@
-h3, h1 {
+h3.error_message {
   text-align: center;
 }
 
@@ -9,6 +9,7 @@ h3, h1 {
   to {color: #001501;}
 }
 
-h1 {
+h1.error_title {
+  text-align: center;
   animation: blink 1s infinite;
 }

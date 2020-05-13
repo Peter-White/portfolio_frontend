@@ -4,7 +4,23 @@ import './index.css';
 class Loading extends Component {
   render () {
     return(
-      <img src="https://media.giphy.com/media/Q9aBxHn9fTqKs/giphy.gif" />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1>
+              <span className="verticle">|</span>
+              <span className="right">/</span>
+              <span className="horizontal">-</span>
+              <span className="left">\</span>
+              <span className="loading"> Loading </span>
+              <span className="verticle">|</span>
+              <span className="right">/</span>
+              <span className="horizontal">-</span>
+              <span className="left">\</span>
+            </h1>
+          </div>
+        </div>
+      </div>
     );
   }
 }
