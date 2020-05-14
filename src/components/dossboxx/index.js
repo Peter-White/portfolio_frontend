@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import './index.css';
 import Help from '../help';
 import History from '../history';
+import Register from '../register';
 import Skills from '../skills';
 import Skill from '../skill';
 import Projects from '../projects';
@@ -23,6 +24,8 @@ class DossBoxx extends Component {
           return <Projects inputReturn={this.props.inputReturn} />;
         case 'project':
           return <Project id={command["id"]} />;
+        case 'register':
+          return <Register handleRegister={this.props.handleRegister} />;
         case 'history':
           return <History />;
         default:

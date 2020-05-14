@@ -5,7 +5,7 @@ class Command extends Component {
 
   handleKeyPress = (e) => {
     var keycode = (e.keyCode ? e.keyCode : e.which);
-    if (keycode == '13') {
+    if (keycode === 13) {
       this.props.inputReturn(e.target.value);
       e.target.value = "";
     }

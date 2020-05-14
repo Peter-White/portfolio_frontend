@@ -12,9 +12,7 @@ class App extends Component {
 
     this.state = {
       logged_in: false,
-      data: {
-        "username": "Unauthorized"
-      },
+      "name": "Unauthorized",
       command: { "command" : "help", id : -1 }
     }
   }
@@ -92,38 +90,39 @@ class App extends Component {
   //   localStorage.clear();
   // }
   //
-  // handleRegister = async(formData) => {
-  //
-  //   const URL = "http://127.0.0.1:5000/api/register";
-  //
-  //   // encrypt a token with the proper payload info to send to our api
-  //   let token = jwt.sign(
-  //     { 'first_name': formData["first_name"], 'last_name': formData["last_name"], 'company': formData["company"], 'email': formData["email"], 'password': formData["password"], 'username': formData["username"] },
-  //     SECRET_KEY,
-  //     { expiresIn: '1h' } // expires in 1 hour
-  //   );
-  //
-  //   // send the token to register the user
-  //   let response = await fetch(URL, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'token': token
-  //     }
-  //   });
-  //
-  //   let data = await response.json();
-  //
-  //   // setup message saying register or error
-  //   if (Object.keys(data)[0] === 'success') {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  handleRegister = async(formData) => {
+
+    console.log(formData);
+    // const URL = "http://127.0.0.1:5000/api/register";
+    //
+    // // encrypt a token with the proper payload info to send to our api
+    // let token = jwt.sign(
+    //   { 'first_name': formData["first_name"], 'last_name': formData["last_name"], 'company': formData["company"], 'email': formData["email"], 'password': formData["password"], 'username': formData["username"] },
+    //   SECRET_KEY,
+    //   { expiresIn: '1h' } // expires in 1 hour
+    // );
+    //
+    // // send the token to register the user
+    // let response = await fetch(URL, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'token': token
+    //   }
+    // });
+    //
+    // let data = await response.json();
+    //
+    // // setup message saying register or error
+    // if (Object.keys(data)[0] === 'success') {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+  }
 
   inputReturn = (data, id = -1) => {
     let comData = {
-      "command" : data,
+      "command" : data.toLowerCase(),
       "id" : id
     };
     this.setState({command : comData});
@@ -132,8 +131,12 @@ class App extends Component {
   render() {
     return(
       <div className="App container-fluid">
-        <Header />
-        <DossBoxx inputReturn={this.inputReturn} command={this.state.command} />
+        <Header inputReturn={this.inputReturn} />
+        <DossBoxx
+          inputReturn={this.inputReturn}
+          command={this.state.command}
+          handleRegister={this.handleRegister}
+        />
         <Command inputReturn={this.inputReturn}/>
       </div>
     );
