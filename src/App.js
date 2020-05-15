@@ -119,6 +119,15 @@ class App extends Component {
     }
   }
 
+  sendCode = async(code) => {
+    let options = {
+      headers: {
+        'Content-Type': 'application/json',
+        'code': code
+      }
+    };
+  }
+
   inputReturn = (data, id = -1) => {
     let comData = {
       "command" : data.toLowerCase(),
