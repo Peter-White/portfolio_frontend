@@ -49,7 +49,7 @@ class Register extends React.Component {
     if(e.target.confirmPassword.value === "") {
       errors.push("confirmPassword is required");
     } else {
-      if(e.target.password.value === e.target.confirmPassword.value) {
+      if(e.target.password.value !== e.target.confirmPassword.value) {
         errors.push("passwords must match");
       }
     }
@@ -57,12 +57,11 @@ class Register extends React.Component {
     if(errors.length > 0) {
       this.setState({ errors : errors });
     } else {
-      console.log(formData);
+      this.props.handleRegister(formData);
     }
   };
 
   render () {
-    console.log(this.state.errors);
     return(
       <div className="container">
         <div className="row">

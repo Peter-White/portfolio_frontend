@@ -4,6 +4,7 @@ import Header from './components/header';
 import DossBoxx from './components/dossboxx';
 import Command from './components/command';
 import SECRET_KEY from './config.js';
+import backend from "./apis/backend";
 let jwt = require('jsonwebtoken');
 
 class App extends Component {
@@ -92,24 +93,30 @@ class App extends Component {
   //
   handleRegister = async(formData) => {
 
-    console.log(formData);
-    // const URL = "http://127.0.0.1:5000/api/register";
-    //
-    // // encrypt a token with the proper payload info to send to our api
-    // let token = jwt.sign(
-    //   { 'first_name': formData["first_name"], 'last_name': formData["last_name"], 'company': formData["company"], 'email': formData["email"], 'password': formData["password"], 'username': formData["username"] },
-    //   SECRET_KEY,
-    //   { expiresIn: '1h' } // expires in 1 hour
-    // );
-    //
+    // encrypt a token with the proper payload info to send to our api
+    let token = jwt.sign(
+      { 'first_name': formData["first_name"], 'last_name': formData["last_name"], 'company': formData["company"], 'email': formData["email"], 'password': formData["password"] },
+      SECRET_KEY,
+      { expiresIn: '1h' } // expires in 1 hour
+    );
+
+    let options = {
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    };
+
     // // send the token to register the user
+    backend.post("register", {}, options);
+
     // let response = await fetch(URL, {
     //   headers: {
     //     'Content-Type': 'application/json',
     //     'token': token
     //   }
     // });
-    //
+//
     // let data = await response.json();
     //
     // // setup message saying register or error
