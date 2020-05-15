@@ -8,6 +8,7 @@ import Skill from '../skill';
 import Projects from '../projects';
 import Project from '../project';
 import Error from '../error';
+import Confirm from '../confirm';
 
 class DossBoxx extends Component {
 
@@ -28,6 +29,8 @@ class DossBoxx extends Component {
           return <Register handleRegister={this.props.handleRegister} />;
         case 'history':
           return <History />;
+        case 'confirm':
+          return <Confirm />;
         default:
           return <Error message={`command "${command["command"]}" not found`} />;
       }

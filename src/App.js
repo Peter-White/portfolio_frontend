@@ -108,23 +108,15 @@ class App extends Component {
     };
 
     // // send the token to register the user
-    backend.post("register", {}, options);
+    let response = await backend.post("register", {}, options);
+    let data = await response.data;
 
-    // let response = await fetch(URL, {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'token': token
-    //   }
-    // });
-//
-    // let data = await response.json();
-    //
     // // setup message saying register or error
-    // if (Object.keys(data)[0] === 'success') {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
+    if (Object.keys(data)[0] === 'success') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   inputReturn = (data, id = -1) => {

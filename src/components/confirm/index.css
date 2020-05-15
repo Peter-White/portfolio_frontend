@@ -1,0 +1,7 @@
+input#confirm_input {
+  color: lightgreen;
+  background: rgb(0, 10, 0);
+  border-color: lightgreen;
+  font-size: 60px;
+  text-transform: uppercase;
+}
