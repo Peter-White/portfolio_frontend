@@ -42,44 +42,46 @@ class App extends Component {
   //   this.setState({ data });
   // }
   //
-  // handleLogin = async(e) => {
-  //   let email = e.target.elements.email.value;
-  //   let password = e.target.elements.password.value;
-  //
-  //   const URL = "http://127.0.0.1:5000/api/login";
-  //
-  //   // encrypt a token with the proper payload info to send to our api
-  //   let token = jwt.sign(
-  //     { 'email': email, 'password': password },
-  //     SECRET_KEY,
-  //     { expiresIn: '1h' } // expires in 1 hour
-  //   );
-  //
-  //   // send the token to register the user
-  //   let response = await fetch(URL, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'token': token
-  //     }
-  //   });
-  //
-  //   let data = await response.json();
-  //
-  //   // setup message saying register or error
-  //   if (data.message === 'success') {
-  //     this.setState({ logged_in: true });
-  //
-  //     // set the token we recieve into local storage
-  //     localStorage.setItem('token', data.token);
-  //
-  //     this.getData();
-  //
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  //
+  handleLogin = async(e) => {
+    let email = e.target.elements.email.value;
+    let password = e.target.elements.password.value;
+
+    let options = {
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    };
+
+    // encrypt a token with the proper payload info to send to our api
+    let token = jwt.sign(
+      { 'email': email, 'password': password },
+      SECRET_KEY,
+      { expiresIn: '1h' } // expires in 1 hour
+    );
+
+    // // send the token to register the user
+    let response = await backend.post("login", {}, options);
+
+    let data = await response.json();
+
+    console.log(data);
+    //
+    // // setup message saying register or error
+    // if (data.message === 'success') {
+    //   this.setState({ logged_in: true });
+    //
+    //   // set the token we recieve into local storage
+    //   localStorage.setItem('token', data.token);
+    //
+    //   this.getData();
+    //
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+  }
+
   // handleLogOut = () => {
   //   this.setState({
   //     logged_in: false,
@@ -149,6 +151,7 @@ class App extends Component {
           inputReturn={this.inputReturn}
           command={this.state.command}
           handleRegister={this.handleRegister}
+          handleLogin={this.handleLogin}
           sendCode={this.sendCode}
         />
         <Command inputReturn={this.inputReturn}/>

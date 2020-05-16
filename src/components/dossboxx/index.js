@@ -3,6 +3,7 @@ import './index.css';
 import Help from '../help';
 import History from '../history';
 import Register from '../register';
+import Login from '../login';
 import Skills from '../skills';
 import Skill from '../skill';
 import Projects from '../projects';
@@ -27,6 +28,8 @@ class DossBoxx extends Component {
           return <Project id={command["id"]} />;
         case 'register':
           return <Register handleRegister={this.props.handleRegister} />;
+        case 'login':
+          return <Login handleLogin={this.props.handleLogin} />;
         case 'history':
           return <History />;
         case 'confirm':
