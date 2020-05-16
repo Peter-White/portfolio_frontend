@@ -12,12 +12,19 @@ class Command extends Component {
   }
 
   render () {
+    let name = "";
+    if(Object.keys(this.props.data).length > 0) {
+      name = this.props.data["name"];
+    } else {
+      name = "Guest";
+    }
+
     return(
       <div className="row command">
         <div className="col-md-12">
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <span className="input-group-text" id="path">{this.props["name"]}></span>
+              <span className="input-group-text" id="path">{name}></span>
               </div>
               <input type="text" onKeyPress={this.handleKeyPress} className="form-control" id="command-input" autoComplete="off" aria-describedby="basic-addon3"/>
             </div>

@@ -13,8 +13,8 @@ class App extends Component {
 
     this.state = {
       logged_in: false,
-      "name": "Guest",
-      command: { "command" : "help", id : -1 }
+      command: { "command" : "help", id : -1 },
+      data: {}
     }
   }
 
@@ -35,8 +35,8 @@ class App extends Component {
       }
     };
 
-    let response = await backend.post("user", {}, options);
-    let data = await response.json();
+    let response = await backend.get("user", {}, options);
+    let data = await response.data;
 
     this.setState({ data });
   }
@@ -75,17 +75,15 @@ class App extends Component {
     }
   }
 
-  // handleLogOut = () => {
-  //   this.setState({
-  //     logged_in: false,
-  //     data: {
-  //       "username": "Unauthorized"
-  //     }
-  //   });
-  //
-  //   localStorage.clear();
-  // }
-  //
+  handleLogOut = () => {
+    this.setState({
+      logged_in: false,
+      data: {}
+    });
+
+    localStorage.clear();
+  }
+
   handleRegister = async(formData) => {
 
     // encrypt a token with the proper payload info to send to our api
@@ -145,9 +143,10 @@ class App extends Component {
           command={this.state.command}
           handleRegister={this.handleRegister}
           handleLogin={this.handleLogin}
+          handleLogOut={this.handleLogOut}
           sendCode={this.sendCode}
         />
-      <Command name={this.state["name"]} inputReturn={this.inputReturn}/>
+      <Command data={this.state.data} inputReturn={this.inputReturn}/>
       </div>
     );
   }

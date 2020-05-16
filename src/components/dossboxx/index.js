@@ -4,6 +4,7 @@ import Help from '../help';
 import History from '../history';
 import Register from '../register';
 import Login from '../login';
+import LogOut from '../logout';
 import Skills from '../skills';
 import Skill from '../skill';
 import Projects from '../projects';
@@ -30,6 +31,8 @@ class DossBoxx extends Component {
           return <Register handleRegister={this.props.handleRegister} />;
         case 'login':
           return <Login handleLogin={this.props.handleLogin} />;
+        case 'logout':
+          return <LogOut handleLogOut={this.props.handleLogOut}/>;
         case 'history':
           return <History />;
         case 'confirm':
