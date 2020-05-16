@@ -13,38 +13,20 @@ class App extends Component {
 
     this.state = {
       logged_in: false,
-      "name": "Unauthorized",
+      "name": "Guest",
       command: { "command" : "help", id : -1 }
     }
   }
 
-  // componentWillMount() {
-  //   if (localStorage.getItem("token")) {
-  //     this.setState({ logged_in: true });
-  //     this.getData();
-  //   }
-  // }
-  //
-  // getData = async() => {
-  //   let token = localStorage.getItem('token');
-  //
-  //   const URL = "http://localhost:5000/api/user";
-  //
-  //   let response = await fetch(URL, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'token': token
-  //     }
-  //   });
-  //
-  //   let data = await response.json();
-  //
-  //   this.setState({ data });
-  // }
-  //
-  handleLogin = async(e) => {
-    let email = e.target.elements.email.value;
-    let password = e.target.elements.password.value;
+  componentWillMount() {
+    if (localStorage.getItem("token")) {
+      this.setState({ logged_in: true });
+      this.getData();
+    }
+  }
+
+  getData = async() => {
+    let token = localStorage.getItem('token');
 
     let options = {
       headers: {
@@ -53,33 +35,44 @@ class App extends Component {
       }
     };
 
-    // encrypt a token with the proper payload info to send to our api
+    let response = await backend.post("user", {}, options);
+    let data = await response.json();
+
+    this.setState({ data });
+  }
+
+  handleLogin = async(formData) => {
+    // // encrypt a token with the proper payload info to send to our api
     let token = jwt.sign(
-      { 'email': email, 'password': password },
+      { 'email': formData["email"], 'password': formData["password"] },
       SECRET_KEY,
       { expiresIn: '1h' } // expires in 1 hour
     );
 
-    // // send the token to register the user
+    let options = {
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    };
+
+    // // // send the token to register the user
     let response = await backend.post("login", {}, options);
+    let data = await response.data;
 
-    let data = await response.json();
-
-    console.log(data);
-    //
     // // setup message saying register or error
-    // if (data.message === 'success') {
-    //   this.setState({ logged_in: true });
-    //
-    //   // set the token we recieve into local storage
-    //   localStorage.setItem('token', data.token);
-    //
-    //   this.getData();
-    //
-    //   return true;
-    // } else {
-    //   return false;
-    // }
+    if (data.message === 'success') {
+      this.setState({ logged_in: true });
+
+      // set the token we recieve into local storage
+      localStorage.setItem('token', data.token);
+
+      this.getData();
+
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // handleLogOut = () => {
@@ -154,7 +147,7 @@ class App extends Component {
           handleLogin={this.handleLogin}
           sendCode={this.sendCode}
         />
-        <Command inputReturn={this.inputReturn}/>
+      <Command name={this.state["name"]} inputReturn={this.inputReturn}/>
       </div>
     );
   }
