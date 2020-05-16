@@ -14,7 +14,7 @@ class Command extends Component {
   render () {
     let name = "";
     if(Object.keys(this.props.data).length > 0) {
-      name = this.props.data["name"];
+      name = this.props.data["first_name"];
     } else {
       name = "Guest";
     }

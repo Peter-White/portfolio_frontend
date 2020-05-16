@@ -35,7 +35,7 @@ class App extends Component {
       }
     };
 
-    let response = await backend.get("user", {}, options);
+    let response = await backend.post("user", {}, options);
     let data = await response.data;
 
     this.setState({ data });
@@ -135,6 +135,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     return(
       <div className="App container-fluid">
         <Header inputReturn={this.inputReturn} />
