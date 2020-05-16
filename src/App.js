@@ -78,7 +78,8 @@ class App extends Component {
   handleLogOut = () => {
     this.setState({
       logged_in: false,
-      data: {}
+      data: {},
+      command: { "command" : "help", id : -1 }
     });
 
     localStorage.clear();
@@ -135,11 +136,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return(
       <div className="App container-fluid">
         <Header inputReturn={this.inputReturn} />
         <DossBoxx
+          logged={this.state.logged_in}
+          data={this.state.data}
           inputReturn={this.inputReturn}
           command={this.state.command}
           handleRegister={this.handleRegister}

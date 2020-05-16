@@ -15,31 +15,39 @@ import Confirm from '../confirm';
 class DossBoxx extends Component {
 
   render () {
+    console.log(this.props);
     const component = (command) => {
-      switch(command["command"]) {
-        case 'help':
-          return <Help />;
-        case 'skills':
-          return <Skills inputReturn={this.props.inputReturn} />;
-        case 'skill':
-          return <Skill inputReturn={this.props.inputReturn} id={command["id"]} />;
-        case 'projects':
-          return <Projects inputReturn={this.props.inputReturn} />;
-        case 'project':
-          return <Project id={command["id"]} />;
-        case 'register':
-          return <Register handleRegister={this.props.handleRegister} />;
-        case 'login':
-          return <Login handleLogin={this.props.handleLogin} />;
-        case 'logout':
-          return <LogOut handleLogOut={this.props.handleLogOut}/>;
-        case 'history':
-          return <History />;
-        case 'confirm':
-          return <Confirm sendCode={this.props.sendCode}/>;
-        default:
-          return <Error message={`command "${command["command"]}" not found`} />;
-      }
+        if(this.props.logged) {
+          switch(command["command"]) {
+            case 'help':
+              return <Help />;
+            case 'skills':
+              return <Skills inputReturn={this.props.inputReturn} />;
+            case 'skill':
+              return <Skill inputReturn={this.props.inputReturn} id={command["id"]} />;
+            case 'projects':
+              return <Projects inputReturn={this.props.inputReturn} />;
+            case 'project':
+              return <Project id={command["id"]} />;
+            case 'logout':
+              return <LogOut handleLogOut={this.props.handleLogOut}/>;
+            case 'history':
+              return <History />;
+            default:
+              return <Error message={`command "${command["command"]}" not found`} />;
+          }
+        } else {
+          switch(command["command"]) {
+            case 'help':
+              return <Help />;
+            case 'register':
+              return <Register handleRegister={this.props.handleRegister} />;
+            case 'login':
+              return <Login handleLogin={this.props.handleLogin} />;
+            default:
+              return <Error message={`command "${command["command"]}" not found`} />;
+          }
+        }
     };
 
     return(
