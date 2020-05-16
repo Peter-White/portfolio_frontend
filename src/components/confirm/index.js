@@ -2,6 +2,28 @@ import React, {Component} from 'react'
 import './index.css';
 
 class Confirm extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      "code" : ""
+    }
+  }
+
+  handleKeyPress = (e) => {
+    var keycode = (e.keyCode ? e.keyCode : e.which);
+    if (keycode === 13) {
+      this.submitCode();
+    }
+  }
+
+  changeCode = (e) => {
+    this.setState({ "code" : e.target.value.toUpperCase() });
+  }
+
+  submitCode = () => {
+    this.props.sendCode(this.state["code"]);
+  }
+
   render () {
     return(
       <div className="container">
@@ -16,8 +38,13 @@ class Confirm extends Component {
           </div>
         </div>
         <div className="row">
+          <div className="col-md-5 offset-md-3">
+            <input id="confirm_input" type="text" className="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" maxLength="6" onChange={this.changeCode} onKeyPress={this.handleKeyPress} />
+          </div>
+        </div>
+        <div className="row">
           <div className="col-md-12">
-            <input id="confirm_input" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" maxlength="6"/>
+            <button type="button" onClick={this.submitCode} className="btn btn-success submit-btn">Submit</button>
           </div>
         </div>
       </div>

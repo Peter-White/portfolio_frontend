@@ -5,3 +5,15 @@ input#confirm_input {
   font-size: 60px;
   text-transform: uppercase;
 }
+
+button.btn.btn-success.submit-btn {
+  background-color: rgb(0, 10, 0);
+  color: lightgreen;
+  border-color: lightgreen;
+}
+
+button.btn.btn-success.submit-btn:active {
+  color: rgb(0, 10, 0);
+  background-color: lightgreen;
+  border-color: lightgreen;
+}

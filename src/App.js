@@ -126,6 +126,11 @@ class App extends Component {
         'code': code
       }
     };
+
+    let response = await backend.post("confirm_code", {}, options);
+    let data = await response.data;
+
+    console.log(data);
   }
 
   inputReturn = (data, id = -1) => {
@@ -144,6 +149,7 @@ class App extends Component {
           inputReturn={this.inputReturn}
           command={this.state.command}
           handleRegister={this.handleRegister}
+          sendCode={this.sendCode}
         />
         <Command inputReturn={this.inputReturn}/>
       </div>

@@ -30,7 +30,7 @@ class DossBoxx extends Component {
         case 'history':
           return <History />;
         case 'confirm':
-          return <Confirm />;
+          return <Confirm sendCode={this.props.sendCode}/>;
         default:
           return <Error message={`command "${command["command"]}" not found`} />;
       }
