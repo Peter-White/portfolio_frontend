@@ -1,10 +1,17 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import React, {Component} from 'react';
+import './index.css';
 
 class Help extends Component {
   render () {
     return(
-      <h1>Help! I need somebody!</h1>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1 id="inTitle"><span className="leterP">P</span>eter White's</h1>
+            <h1 id="inTitle">Portfolio </h1>
+          </div>
+        </div>
+      </div>
     );
   }
 }

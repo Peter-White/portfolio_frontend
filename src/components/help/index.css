@@ -1,0 +1,10 @@
+@font-face {
+  font-family: BACKTO1982;
+  src: url(../../fonts/BACKTO1982.TTF);
+}
+
+h1#inTitle {
+  font-family: BACKTO1982;
+  text-align: center;
+  font-size: 100px;
+}

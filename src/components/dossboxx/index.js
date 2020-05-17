@@ -20,7 +20,7 @@ class DossBoxx extends Component {
         if(this.props.logged) {
           switch(command["command"]) {
             case 'help':
-              return <Help />;
+              return <Help logged={this.props.logged}/>;
             case 'skills':
               return <Skills inputReturn={this.props.inputReturn} />;
             case 'skill':
