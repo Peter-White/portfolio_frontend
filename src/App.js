@@ -69,6 +69,7 @@ class App extends Component {
 
       this.getData();
 
+      this.setState({command: { "command" : "help", id : -1 }});
       return true;
     } else {
       return false;
@@ -108,6 +109,7 @@ class App extends Component {
     // // setup message saying register or error
     if (Object.keys(data)[0] === 'success') {
       return true;
+      this.setState({command: { "command" : "help", id : -1 }});
     } else {
       return false;
     }
