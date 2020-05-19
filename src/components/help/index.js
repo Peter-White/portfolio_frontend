@@ -24,8 +24,24 @@ class Help extends Component {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td>help</td>
+                      <td>Come back to this screen to see all available commands</td>
+                    </tr>
+                    <tr>
+                      <td>projects</td>
+                      <td>See all the projects I've created so far; details and links included</td>
+                    </tr>
+                    <tr>
+                      <td>skills</td>
+                      <td>See all the skills I specialize in and the projects used with them</td>
+                    </tr>
+                    <tr>
+                      <td>history</td>
+                      <td>Read about my work history and everything that's lead to now</td>
+                    </tr>
+                    <tr>
+                      <td>logout</td>
+                      <td>Log out of your DubiOS account</td>
                     </tr>
                   </tbody>
                 </table>
@@ -51,6 +67,10 @@ class Help extends Component {
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td>help</td>
+                      <td>Come back to this screen to see all available commands</td>
+                    </tr>
                     <tr>
                       <td>login</td>
                       <td>Login to your existing Dubious account</td>

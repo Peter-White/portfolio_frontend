@@ -1,5 +1,6 @@
 #skill_list {
   list-style: none;
+  padding-left: 0px;
 }
 
 #skill_list > li {
