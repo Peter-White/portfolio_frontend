@@ -5,7 +5,8 @@ class Confirm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      "code" : ""
+      "code" : "",
+      "error" : ""
     }
   }
 
@@ -20,8 +21,12 @@ class Confirm extends Component {
     this.setState({ "code" : e.target.value.toUpperCase() });
   }
 
-  submitCode = () => {
-    this.props.sendCode(this.state["code"]);
+  submitCode = async () => {
+    let failed = await this.props.submitCode(this.state["code"]);
+
+    if(failed) {
+      this.props.sendError(failed[Object.keys(failed)[0]]);
+    }
   }
 
   render () {

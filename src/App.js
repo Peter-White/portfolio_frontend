@@ -70,9 +70,8 @@ class App extends Component {
       this.getData();
 
       this.setState({command: { "command" : "help", id : -1 }});
-      return true;
     } else {
-      return false;
+      return data.message;
     }
   }
 
@@ -108,8 +107,7 @@ class App extends Component {
 
     // // setup message saying register or error
     if (Object.keys(data)[0] === 'success') {
-      return true;
-      this.setState({command: { "command" : "help", id : -1 }});
+      this.setState({command: { "command" : "confirm", id : -1 }});
     } else {
       return false;
     }
@@ -126,7 +124,11 @@ class App extends Component {
     let response = await backend.post("confirm_code", {}, options);
     let data = await response.data;
 
-    console.log(data);
+    if(Object.keys(data)[0] === "Success") {
+      this.setState({ command: { "command" : "login", id : -1 } });
+    } else {
+      return data;
+    }
   }
 
   inputReturn = (data, id = -1) => {

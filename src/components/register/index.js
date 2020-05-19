@@ -96,7 +96,7 @@ class Register extends React.Component {
                <input type="text" className="form-control" id="companyInput" aria-describedby="companyHelp" name="company" />
              </div>
              <div className="form-group">
-               <label htmlFor="emailInput">Electronic Internet Mail Address</label>
+               <label htmlFor="emailInput">Electronic Internet Super Mail Address</label>
                <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" />
              </div>
              <div className="form-group">

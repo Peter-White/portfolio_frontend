@@ -14,6 +14,10 @@ import Confirm from '../confirm';
 
 class DossBoxx extends Component {
 
+  sendError = (message) => {
+    return <Error message={message} />;
+  };
+
   render () {
     const component = (command) => {
       if(command["command"] === "help") {
@@ -33,16 +37,18 @@ class DossBoxx extends Component {
           case 'history':
             return <History />;
           default:
-            return <Error message={`command "${command["command"]}" not found`} />;
+            return this.sendError(`command "${command["command"]}" not found`);
         }
       } else {
         switch(command["command"]) {
           case 'register':
             return <Register test={"test"} handleRegister={this.props.handleRegister} />;
+          case 'confirm':
+            return <Confirm submitCode={this.props.submitCode} sendError={this.sendError}/>;
           case 'login':
             return <Login handleLogin={this.props.handleLogin} />;
           default:
-            return <Error message={`command "${command["command"]}" not found`} />;
+            return this.sendError(`command "${command["command"]}" not found`);
         }
       }
     };

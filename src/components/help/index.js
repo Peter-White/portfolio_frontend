@@ -59,7 +59,7 @@ class Help extends Component {
             </div>
             <div className="row">
               <div className="col-md-12">
-                <table class="table command-table">
+                <table className="table command-table">
                   <thead>
                     <tr>
                       <th scope="col">Command</th>
@@ -78,6 +78,10 @@ class Help extends Component {
                     <tr>
                       <td>register</td>
                       <td>Register a new DubiOS account</td>
+                    </tr>
+                    <tr>
+                      <td>confirm</td>
+                      <td>Confirm your registered account</td>
                     </tr>
                   </tbody>
                 </table>
