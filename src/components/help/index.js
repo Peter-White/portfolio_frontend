@@ -15,7 +15,7 @@ class Help extends Component {
             </div>
             <div className="row">
               <div className="col-md-12">
-                <table class="table command-table">
+                <table className="table command-table">
                   <thead>
                     <tr>
                       <th scope="col">Command</th>

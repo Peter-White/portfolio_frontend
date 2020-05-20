@@ -15,19 +15,19 @@ class Confirm extends Component {
     if (keycode === 13) {
       this.submitCode();
     }
-  }
+  };
 
   changeCode = (e) => {
     this.setState({ "code" : e.target.value.toUpperCase() });
-  }
+  };
 
-  submitCode = async () => {
-    let failed = await this.props.submitCode(this.state["code"]);
+  submitCode = async() => {
+    let failed = await this.props.handleCode(this.state["code"]);
 
     if(failed) {
       this.props.sendError(failed[Object.keys(failed)[0]]);
     }
-  }
+  };
 
   render () {
     return(

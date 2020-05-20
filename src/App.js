@@ -39,7 +39,7 @@ class App extends Component {
     let data = await response.data;
 
     this.setState({ data });
-  }
+  };
 
   handleLogin = async(formData) => {
     // // encrypt a token with the proper payload info to send to our api
@@ -73,7 +73,7 @@ class App extends Component {
     } else {
       return data.message;
     }
-  }
+  };
 
   handleLogOut = () => {
     this.setState({
@@ -83,7 +83,7 @@ class App extends Component {
     });
 
     localStorage.clear();
-  }
+  };
 
   handleRegister = async(formData) => {
 
@@ -111,9 +111,9 @@ class App extends Component {
     } else {
       return false;
     }
-  }
+  };
 
-  sendCode = async(code) => {
+  handleCode = async(code) => {
     let options = {
       headers: {
         'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ class App extends Component {
     } else {
       return data;
     }
-  }
+  };
 
   inputReturn = (data, id = -1) => {
     let comData = {
@@ -137,7 +137,8 @@ class App extends Component {
       "id" : id
     };
     this.setState({command : comData});
-  }
+  };
+
 
   render() {
     return(
@@ -151,7 +152,7 @@ class App extends Component {
           handleRegister={this.handleRegister}
           handleLogin={this.handleLogin}
           handleLogOut={this.handleLogOut}
-          sendCode={this.sendCode}
+          handleCode={this.handleCode}
         />
       <Command data={this.state.data} inputReturn={this.inputReturn}/>
       </div>

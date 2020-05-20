@@ -44,7 +44,7 @@ class DossBoxx extends Component {
           case 'register':
             return <Register test={"test"} handleRegister={this.props.handleRegister} />;
           case 'confirm':
-            return <Confirm submitCode={this.props.submitCode} sendError={this.sendError}/>;
+            return <Confirm handleCode={this.props.handleCode} sendError={this.sendError}/>;
           case 'login':
             return <Login handleLogin={this.props.handleLogin} />;
           default:
